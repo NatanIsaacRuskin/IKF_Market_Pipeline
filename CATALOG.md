@@ -1,5 +1,35 @@
 # IKF Market Pipeline – Code Catalog
 
+_Branch: **main** | Files: **15**_
+
+## Index
+
+- `CATALOG.md`  (21 KB, modified 2025-11-09 14:34:28Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+- `config/config.yaml`  (1 KB, modified 2025-11-09 13:37:06Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+- `modules/__init__.py`  (0 B, modified 2025-11-08 17:53:54Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
+- `modules/equities.py`  (2 KB, modified 2025-11-08 22:10:48Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
+- `modules/features.py`  (7 KB, modified 2025-11-08 22:10:38Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
+- `modules/futures.py`  (862 B, modified 2025-11-08 17:58:04Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
+- `modules/options.py`  (1 KB, modified 2025-11-08 17:56:51Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/rates.py`  (709 B, modified 2025-11-08 17:57:50Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
+- `quick_check.py`  (714 B, modified 2025-11-08 22:10:35Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
+- `Readme.md`  (229 B, modified 2025-11-09 13:31:20Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
+- `requirements.txt`  (94 B, modified 2025-11-09 13:18:02Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
+- `run_pipeline.py`  (2 KB, modified 2025-11-08 22:10:46Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
+- `utils/__init__.py`  (0 B, modified 2025-11-08 17:53:54Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
+- `utils/build_catalog.py`  (2 KB, modified 2025-11-09 14:34:12Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
+- `utils/helpers.py`  (1 KB, modified 2025-11-08 17:43:30Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
+
+---
+
+## File Previews
+
+
+### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+
+```md
+# IKF Market Pipeline – Code Catalog
+
 _Branch: **main** | Files: **14**_
 
 ## Index
@@ -23,6 +53,70 @@ _Branch: **main** | Files: **14**_
 
 ## File Previews
 
+
+### `config/config.yaml`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+
+```yaml
+storage:
+  format: parquet            # how we save files
+  root: "data/raw"           # where raw market files go
+  timezone: "US/Eastern"
+
+defaults:
+  history_start: "2010-01-01"
+
+equities:
+  enabled: true
+  universe: ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
+  price_interval: "1d"
+
+  # pick ONE mode:
+  # - full         : fetch from history_start → today (rebuilds files)
+  # - incremental  : append from last saved date → today (typical daily use)
+  # - recent       : pull a rolling window (lookback_days) and merge
+  mode: "incremental"        # "full" | "incremental" | "recent"
+  lookback_days: 365         # only used when mode = "recent"
+
+options:
+  enabled: true
+  underlying: ["AAPL","MSFT","SPY"]
+  expires: "nearest_3"       # nearest N expiries
+  chains: ["calls","puts"]
+
+futures:
+  enabled: true
+  tickers: ["ES=F","NQ=F","CL=F","GC=F","ZN=F"]
+  price_interval: "1d"
+
+rates:
+  enabled: true
+  fred_series:
+    - "SOFR"
+    - "DGS2"
+    - "DGS5"
+    - "DGS10"
+    - "DGS30"
+  start: "2010-01-01"
+
+features:
+  equities:
+    enabled: true
+    win_ret: 20
+    win_vol: 60
+    win_sharpe: 60
+    sma_windows: [20, 50]
+    ema_windows: [20, 50]
+    rsi_period: 14
+    plots: true
+    processed_path: "data/processed"
+    plots_path: "output/plots"
+
+```
+
+### `modules/__init__.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipelin
+...
+[truncated]
+```
 
 ### `config/config.yaml`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
 
