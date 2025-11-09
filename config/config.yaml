@@ -1,0 +1,52 @@
+storage:
+  format: parquet
+  root: "data/raw"        # where raw market files go
+  timezone: "US/Eastern"
+
+defaults:
+  history_start: "2010-01-01"
+
+equities:
+  enabled: true
+  universe: ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
+  price_interval: "1d"
+  history_start: "2010-01-01"
+
+  # choose one
+  mode: "full"         # full | incremental | recent
+  lookback_days: 730   # used only for recent
+
+options:
+  enabled: true
+  underlying: ["AAPL","MSFT","SPY"]
+  expiries: "nearest_3"   # nearest N expiries to pull
+  chains: ["calls","puts"]
+
+futures:
+  enabled: true
+  tickers: ["ES=F","NQ=F","CL=F","GC=F","ZN=F"]
+  price_interval: "1d"
+
+rates:
+  enabled: true
+  fred_series:
+    - "SOFR"
+    - "DGS2"
+    - "DGS5"
+    - "DGS10"
+    - "DGS30"
+  start: "2010-01-01"
+
+features:
+  equities:
+    enabled: true
+    win_ret: 20
+    win_vol: 60
+    win_sharpe: 60
+    sma_windows: [20, 50]
+    ema_windows: [20, 50]
+    rsi_period: 14
+    plots: true
+    processed_path: "data/processed"
+    plots_path: "output/plots"
+

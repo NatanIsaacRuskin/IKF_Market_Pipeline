@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.ipynb_checkpoints/
+
+# Envs
+.venv/
+venv/
+
+# Big/local artifacts (not in Git)
+data/
+output/
+
+# OS / Editor
+.DS_Store
+.vscode/

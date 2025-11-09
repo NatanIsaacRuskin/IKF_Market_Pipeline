@@ -1,0 +1,30 @@
+# Core data and analysis
+pandas
+numpy
+scipy
+yfinance
+pandas-datareader
+requests
+tqdm
+
+# File handling
+openpyxl
+fastparquet
+pyarrow
+
+# Config and environment management
+pyyaml
+python-dotenv
+
+# Visualization
+matplotlib
+seaborn
+
+# Financial / technical indicators
+ta
+
+# Notebook / interactive tools (optional)
+jupyter
+
+# Progress & logging
+rich
