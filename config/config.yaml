@@ -1,6 +1,6 @@
 storage:
-  format: parquet
-  root: "data/raw"        # where raw market files go
+  format: parquet            # how we save files
+  root: "data/raw"           # where raw market files go
   timezone: "US/Eastern"
 
 defaults:
@@ -10,16 +10,18 @@ equities:
   enabled: true
   universe: ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
   price_interval: "1d"
-  history_start: "2010-01-01"
 
-  # choose one
-  mode: "full"         # full | incremental | recent
-  lookback_days: 730   # used only for recent
+  # pick ONE mode:
+  # - full         : fetch from history_start → today (rebuilds files)
+  # - incremental  : append from last saved date → today (typical daily use)
+  # - recent       : pull a rolling window (lookback_days) and merge
+  mode: "incremental"        # "full" | "incremental" | "recent"
+  lookback_days: 365         # only used when mode = "recent"
 
 options:
   enabled: true
   underlying: ["AAPL","MSFT","SPY"]
-  expiries: "nearest_3"   # nearest N expiries to pull
+  expires: "nearest_3"       # nearest N expiries
   chains: ["calls","puts"]
 
 futures:
@@ -49,4 +51,3 @@ features:
     plots: true
     processed_path: "data/processed"
     plots_path: "output/plots"
-
