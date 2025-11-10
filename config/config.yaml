@@ -8,26 +8,40 @@ defaults:
 
 equities:
   enabled: true
-  universe: ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
+  universe: ["SPY","AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
   price_interval: "1d"
 
   # pick ONE mode:
   # - full         : fetch from history_start → today (rebuilds files)
-  # - incremental  : append from last saved date → today (typical daily use)
+  # - incremental  : append small window near today (uses overlap_days)
   # - recent       : pull a rolling window (lookback_days) and merge
-  mode: "incremental"        # "full" | "incremental" | "recent"
-  lookback_days: 365         # only used when mode = "recent"
+  mode: "incremental"          # "full" | "incremental" | "recent"
+  lookback_days: 365           # only used when mode = "recent"
+
+  # smart incremental window
+  overlap_days: 5              # re-fetch last N days each run to heal revisions
+
+  # gentle rate limiting / retries
+  max_attempts: 3
+  base_sleep: 1.5
+  between_sleep: 0.35
 
 options:
   enabled: true
   underlying: ["AAPL","MSFT","SPY"]
-  expires: "nearest_3"       # nearest N expiries
+  expires: "nearest_3"         # nearest N expiries
   chains: ["calls","puts"]
 
 futures:
   enabled: true
   tickers: ["ES=F","NQ=F","CL=F","GC=F","ZN=F"]
   price_interval: "1d"
+  history_start: "2010-01-01"
+  overlap_days: 5
+  # (optional) reuse gentle knobs; uncomment if you want:
+  # max_attempts: 3
+  # base_sleep: 1.5
+  # between_sleep: 0.35
 
 rates:
   enabled: true
@@ -38,16 +52,22 @@ rates:
     - "DGS10"
     - "DGS30"
   start: "2010-01-01"
+  overlap_days: 5
 
 features:
   equities:
     enabled: true
+    benchmark: "SPY"           # for beta/alpha
     win_ret: 20
     win_vol: 60
     win_sharpe: 60
     sma_windows: [20, 50]
     ema_windows: [20, 50]
     rsi_period: 14
+    boll_window: 20
+    atr_window: 14
+    skew_window: 60
+    kurt_window: 60
     plots: true
     processed_path: "data/processed"
     plots_path: "output/plots"

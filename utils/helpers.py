@@ -1,5 +1,5 @@
-import pandas as pd
 from pathlib import Path
+import pandas as pd
 
 def ensure_dir(path: Path):
     """Create directory if it doesn't exist."""
@@ -17,7 +17,10 @@ def load_parquet(path: Path) -> pd.DataFrame:
     return pd.read_parquet(path) if Path(path).exists() else pd.DataFrame()
 
 def incremental_append(df_new: pd.DataFrame, path: Path, index_name: str = None):
-    """Append new data to an existing parquet file without duplicates."""
+    """
+    Append new data to an existing parquet file without duplicates.
+    Upsert semantics: concat -> sort -> drop duplicate index (keep last).
+    """
     df_old = load_parquet(path)
     if df_old.empty:
         df_all = df_new.copy()
@@ -27,3 +30,19 @@ def incremental_append(df_new: pd.DataFrame, path: Path, index_name: str = None)
     if index_name:
         df_all.index.name = index_name
     df_all.to_parquet(path)
+
+# ---------- NEW: smart fetch window ----------
+def compute_fetch_start(existing_index, history_start="2010-01-01", overlap_days=5) -> str:
+    """
+    Decide a safe, small window to fetch:
+      start = max(history_start, last_date - overlap_days), clamped to today.
+    Returns ISO date string.
+    """
+    today = pd.Timestamp.today().normalize()
+    if existing_index is None or len(existing_index) == 0:
+        return pd.Timestamp(history_start).date().isoformat()
+    last = pd.to_datetime(max(existing_index)).normalize()
+    start = (last - pd.Timedelta(days=overlap_days)).normalize()
+    start = max(pd.Timestamp(history_start), start)
+    start = min(start, today)
+    return start.date().isoformat()
