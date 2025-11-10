@@ -42,8 +42,7 @@ def update_equities(cfg: dict, storage_root: str):
         df.columns = [str(c).strip().title() for c in df.columns]
 
         df.index = pd.to_datetime(df.index)
-        if df.index.name is None:
-            df.index.name = "Date"
+        df.index.name = "Date"
 
         incremental_append(df, path, index_name="Date")
-        print(f"[OK] {t}: {mode=} saved -> {path}")
+        print(f"[OK] {t}: mode={mode} saved -> {path}")

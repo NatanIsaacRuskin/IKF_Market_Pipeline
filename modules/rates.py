@@ -12,6 +12,7 @@ def update_rates(cfg: dict, storage_root: str):
         exist = load_parquet(path)
         sdate = (exist.index.max() + pd.Timedelta(days=1)).date().isoformat() if not exist.empty else start
         df = pdr.DataReader(s, "fred", sdate)   # index=Date, col=series
-        if df.empty: 
+        if df.empty:
             continue
+        df.index = pd.to_datetime(df.index); df.index.name = "Date"
         incremental_append(df, path, index_name="Date")

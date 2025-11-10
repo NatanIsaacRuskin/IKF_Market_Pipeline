@@ -7,6 +7,10 @@ ta
 matplotlib
 seaborn
 
-# Optional but useful
+# Parquet + data sources
+pyarrow
+pandas-datareader
+
+# Optional
 rich
 jupyter

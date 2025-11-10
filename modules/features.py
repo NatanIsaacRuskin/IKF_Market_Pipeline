@@ -103,100 +103,70 @@ def _compute_one_ticker_features(df: pd.DataFrame, ticker: str, cfg: dict) -> pd
     feats["ticker"] = ticker
     return feats.dropna(how="all")
 
-def build_equity_features(cfg_eq_feat: dict) -> pd.DataFrame:
+# ---------- public entry point used by run_pipeline.py ----------
+def run_equity_features(cfg_eq_feat: dict):
+    """
+    Orchestrates equity feature engineering + basic plots.
+    Expects keys in config:
+      processed_path, plots_path, plots (bool)
+    """
+    processed_path = Path(cfg_eq_feat.get("processed_path", "data/processed"))
+    plots_path     = Path(cfg_eq_feat.get("plots_path", "output/plots"))
+    ensure_dir(processed_path)
+    ensure_dir(plots_path)
+
+    feats_list = []
     files = sorted(RAW_EQUITIES_DIR.glob("*.parquet"))
-    out = []
     for f in files:
         tkr = f.stem
         try:
             df = pd.read_parquet(f)
-            if df.empty:
-                continue
-            if isinstance(df.columns, pd.MultiIndex):       # flatten if needed
-                df.columns = df.columns.get_level_values(0)
-            df.columns = [str(c).strip() for c in df.columns]
-
-            feats = _compute_one_ticker_features(df, tkr, cfg_eq_feat)
-            if not feats.empty:
-                out.append(feats)
+            one = _compute_one_ticker_features(df, tkr, cfg_eq_feat)
+            if not one.empty:
+                feats_list.append(one)
         except Exception as e:
-            print(f"[WARN] {tkr}: {e}")
-    if not out:
-        return pd.DataFrame()
-    feats_all = pd.concat(out).sort_index()
-    cols = ["ticker"] + [c for c in feats_all.columns if c != "ticker"]
-    return feats_all[cols]
+            print(f"[WARN] features {tkr}: {e}")
 
-def _plot_risk_return(df_feats: pd.DataFrame, plots_dir: Path):
-    ensure_dir(plots_dir)
-    tmp = (df_feats.groupby("ticker")
-           .agg(ret_ann=("ret_1d_log", lambda x: x.mean()*252),
-                vol_ann=("ret_1d_log", lambda x: x.std()*np.sqrt(252)))).dropna()
-    if tmp.empty:
-        print("[INFO] Not enough data to draw risk/return scatter.")
-        return
-    plt.figure(figsize=(8,6))
-    sns.scatterplot(x="vol_ann", y="ret_ann", data=tmp)
-    for t, r in tmp.iterrows():
-        plt.text(r["vol_ann"], r["ret_ann"], t, fontsize=8)
-    plt.axhline(0, color="gray", lw=0.8)
-    plt.xlabel("Annualized Volatility"); plt.ylabel("Annualized Return")
-    plt.title("Equities Risk/Return (annualized)")
-    out = plots_dir / "equities_risk_return.png"
-    plt.tight_layout(); plt.savefig(out, dpi=150); plt.close()
-    print(f"[OK] plot -> {out}")
-
-def _plot_corr_heatmap(df_feats: pd.DataFrame, plots_dir: Path):
-    ensure_dir(plots_dir)
-    mat = df_feats.pivot_table(index=df_feats.index, columns="ticker", values="ret_1d_log")
-    mat = mat.dropna(how="all").dropna(axis=1, how="all")
-
-    # require a minimum number of observations per ticker
-    min_obs = 60
-    if mat.shape[0] == 0:
-        print("[INFO] No return rows available for correlation; skipping heatmap.")
-        return
-    keep = mat.count() >= min_obs
-    mat = mat.loc[:, keep]
-
-    if mat.shape[1] < 2:
-        print("[INFO] Not enough overlapping data to draw correlation heatmap (need ≥2 tickers).")
+    if not feats_list:
+        print("[WARN] No features built (no equities parquet files found).")
         return
 
-    corr = mat.corr()
-    if corr.size == 0:
-        print("[INFO] Correlation matrix empty after cleaning; skipping heatmap.")
+    all_feats = pd.concat(feats_list, axis=0, sort=False)
+    all_feats.index.name = "Date"
+    all_feats.to_parquet(processed_path / "equity_features.parquet")
+    print(f"[OK] Saved features -> {processed_path/'equity_features.parquet'}  rows={len(all_feats):,}")
+
+    if not cfg_eq_feat.get("plots", True):
         return
 
-    plt.figure(figsize=(10,8))
-    sns.heatmap(corr, cmap="RdBu_r", center=0, square=True)
-    plt.title("Equities Return Correlation")
-    out = plots_dir / "equities_corr_heatmap.png"
-    plt.tight_layout(); plt.savefig(out, dpi=150); plt.close()
-    print(f"[OK] plot -> {out}")
+    # --- Plot 1: correlation heatmap of daily returns by ticker ---
+    try:
+        piv = all_feats.pivot_table(index=all_feats.index, columns="ticker", values="ret_1d_log")
+        corr = piv.corr(min_periods=60)
+        plt.figure(figsize=(10,8))
+        sns.heatmap(corr, cmap="vlag", center=0, annot=False, linewidths=0.2)
+        plt.title("Equities: 1D Log Return Correlations")
+        plt.tight_layout()
+        out1 = plots_path / "equities_corr_heatmap.png"
+        plt.savefig(out1, dpi=150); plt.close()
+        print(f"[OK] Plot -> {out1}")
+    except Exception as e:
+        print(f"[WARN] corr heatmap: {e}")
 
-def run_equity_features(cfg: dict):
-    """cfg should be config['features']['equities']"""
-    if not cfg.get("enabled", True):
-        print("[INFO] equity features disabled in config.")
-        return
-
-    processed_dir = Path(cfg.get("processed_path", "data/processed"))
-    plots_dir     = Path(cfg.get("plots_path", "output/plots"))
-
-    feats = build_equity_features(cfg)
-    if feats.empty:
-        print("[WARN] no equity raw data in data/raw/equities. Run the pipeline first.")
-        return
-
-    ensure_dir(processed_dir)
-    out_path = processed_dir / "equities_features.parquet"
-    feats.to_parquet(out_path)
-    print(f"[OK] saved -> {out_path}")
-
-    if cfg.get("plots", True):
-        try:
-            _plot_risk_return(feats, plots_dir)
-            _plot_corr_heatmap(feats, plots_dir)
-        except Exception as e:
-            print(f"[WARN] plotting failed: {e}")
+    # --- Plot 2: risk–return scatter (annualized) ---
+    try:
+        ann_mean = piv.mean(skipna=True) * 252
+        ann_vol  = piv.std(skipna=True) * np.sqrt(252)
+        rr = pd.DataFrame({"ann_mean": ann_mean, "ann_vol": ann_vol}).dropna()
+        plt.figure(figsize=(10,7))
+        plt.scatter(rr["ann_vol"], rr["ann_mean"], s=40, alpha=0.8)
+        for tkr, row in rr.iterrows():
+            plt.text(row["ann_vol"], row["ann_mean"], tkr, fontsize=8, ha="left", va="bottom")
+        plt.xlabel("Annualized Volatility"); plt.ylabel("Annualized Return")
+        plt.title("Equities: Risk–Return")
+        plt.grid(True, alpha=0.3); plt.tight_layout()
+        out2 = plots_path / "equities_risk_return.png"
+        plt.savefig(out2, dpi=150); plt.close()
+        print(f"[OK] Plot -> {out2}")
+    except Exception as e:
+        print(f"[WARN] risk-return plot: {e}")

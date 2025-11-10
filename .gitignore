@@ -1,19 +1,5 @@
-# ---------- Python ----------
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.egg-info/
-.ipynb_checkpoints/
-
-# ---------- Virtual Environments ----------
-.venv/
-venv/
-
-# ---------- Data & Outputs ----------
 data/
 output/
-
-# ---------- OS / Editor ----------
-.DS_Store
-.vscode/
+backups/
+**/.ipynb_checkpoints/
+*.log

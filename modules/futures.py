@@ -14,7 +14,8 @@ def update_futures(cfg: dict, storage_root: str, default_start="2010-01-01"):
         exist = load_parquet(path)
         start = (exist.index.max() + pd.Timedelta(days=1)).date().isoformat() if not exist.empty else default_start
         df = yf.download(t, start=start, interval=interval, auto_adjust=False, progress=False)
-        if df.empty: 
+        if df.empty:
             continue
         df = df.rename(columns=str.capitalize)
+        df.index = pd.to_datetime(df.index); df.index.name = "Date"
         incremental_append(df, path, index_name="Date")
