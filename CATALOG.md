@@ -4,6 +4,36 @@ _Branch: **main** | Files: **15**_
 
 ## Index
 
+- `CATALOG.md`  (25 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+- `config/config.yaml`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+- `modules/__init__.py`  (0 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
+- `modules/equities.py`  (4 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
+- `modules/features.py`  (10 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
+- `modules/futures.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
+- `modules/options.py`  (1 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/rates.py`  (1 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
+- `quick_check.py`  (714 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
+- `Readme.md`  (229 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
+- `requirements.txt`  (135 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
+- `run_pipeline.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
+- `utils/__init__.py`  (0 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
+- `utils/build_catalog.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
+- `utils/helpers.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
+
+---
+
+## File Previews
+
+
+### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+
+```md
+# IKF Market Pipeline – Code Catalog
+
+_Branch: **main** | Files: **15**_
+
+## Index
+
 - `CATALOG.md`  (25 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
 - `config/config.yaml`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
 - `modules/__init__.py`  (0 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
@@ -40,37 +70,7 @@ _Branch: **main** | Files: **15**_
 - `modules/equities.py`  (2 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
 - `modules/features.py`  (7 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
 - `modules/futures.py`  (862 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
-- `modules/rates.py`  (709 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
-- `quick_check.py`  (714 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
-- `Readme.md`  (229 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
-- `requirements.txt`  (94 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
-- `run_pipeline.py`  (2 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
-- `utils/__init__.py`  (0 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
-- `utils/build_catalog.py`  (2 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
-- `utils/helpers.py`  (1 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
-
----
-
-## File Previews
-
-
-### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-
-```md
-# IKF Market Pipeline – Code Catalog
-
-_Branch: **main** | Files: **15**_
-
-## Index
-
-- `CATALOG.md`  (21 KB, modified 2025-11-09 14:34:28Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-- `config/config.yaml`  (1 KB, modified 2025-11-09 13:37:06Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
-- `modules/__init__.py`  (0 B, modified 2025-11-08 17:53:54Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (2 KB, modified 2025-11-08 22:10:48Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
-- `modules/features.py`  (7 KB, modified 2025-11-08 22:10:38Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
-- `modules/futures.py`  (862 B, modified 2025-11-08 17:58:04Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-08 17:56:51Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/options.py`  (1 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py
 ...
 [truncated]
 ```
@@ -88,26 +88,40 @@ defaults:
 
 equities:
   enabled: true
-  universe: ["AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
+  universe: ["SPY","AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
   price_interval: "1d"
 
   # pick ONE mode:
   # - full         : fetch from history_start → today (rebuilds files)
-  # - incremental  : append from last saved date → today (typical daily use)
+  # - incremental  : append small window near today (uses overlap_days)
   # - recent       : pull a rolling window (lookback_days) and merge
-  mode: "incremental"        # "full" | "incremental" | "recent"
-  lookback_days: 365         # only used when mode = "recent"
+  mode: "incremental"          # "full" | "incremental" | "recent"
+  lookback_days: 365           # only used when mode = "recent"
+
+  # smart incremental window
+  overlap_days: 5              # re-fetch last N days each run to heal revisions
+
+  # gentle rate limiting / retries
+  max_attempts: 3
+  base_sleep: 1.5
+  between_sleep: 0.35
 
 options:
   enabled: true
   underlying: ["AAPL","MSFT","SPY"]
-  expires: "nearest_3"       # nearest N expiries
+  expires: "nearest_3"         # nearest N expiries
   chains: ["calls","puts"]
 
 futures:
   enabled: true
   tickers: ["ES=F","NQ=F","CL=F","GC=F","ZN=F"]
   price_interval: "1d"
+  history_start: "2010-01-01"
+  overlap_days: 5
+  # (optional) reuse gentle knobs; uncomment if you want:
+  # max_attempts: 3
+  # base_sleep: 1.5
+  # between_sleep: 0.35
 
 rates:
   enabled: true
@@ -118,16 +132,22 @@ rates:
     - "DGS10"
     - "DGS30"
   start: "2010-01-01"
+  overlap_days: 5
 
 features:
   equities:
     enabled: true
+    benchmark: "SPY"           # for beta/alpha
     win_ret: 20
     win_vol: 60
     win_sharpe: 60
     sma_windows: [20, 50]
     ema_windows: [20, 50]
     rsi_period: 14
+    boll_window: 20
+    atr_window: 14
+    skew_window: 60
+    kurt_window: 60
     plots: true
     processed_path: "data/processed"
     plots_path: "output/plots"
@@ -144,53 +164,104 @@ features:
 
 ```py
 from pathlib import Path
+import time
 import pandas as pd
 import yfinance as yf
-from utils.helpers import parquet_path, incremental_append, load_parquet
+from utils.helpers import (
+    parquet_path, incremental_append, load_parquet, compute_fetch_start
+)
 
-def _start_date(existing: pd.DataFrame, default_start: str, mode: str, lookback_days: int | None) -> str:
+def _mode_start(mode: str,
+                exist_df: pd.DataFrame | None,
+                history_start: str,
+                lookback_days: int,
+                overlap_days: int) -> str:
+    """
+    Decide start date based on mode:
+      - full:        history_start
+      - recent:      today - lookback_days
+      - incremental: compute_fetch_start(existing_index, history_start, overlap_days)
+    Always returns an ISO date string.
+    """
+    mode = (mode or "incremental").lower()
+    today = pd.Timestamp.today().normalize()
+
     if mode == "full":
-        return default_start
+        return pd.Timestamp(history_start).date().isoformat()
+
     if mode == "recent":
-        # pull a rolling window regardless of what's on disk
-        return (pd.Timestamp.today().normalize() - pd.Timedelta(days=lookback_days or 365)).date().isoformat()
-    # incremental (default)
-    if existing.empty:
-        return default_start
-    last = pd.to_datetime(existing.index.max())
-    return (last + pd.Timedelta(days=1)).date().isoformat()
+        start = (today - pd.Timedelta(days=lookback_days)).normalize()
+        return start.date().isoformat()
+
+    # incremental (default): small overlap window ending today
+    exist_idx = None if exist_df is None or exist_df.empty else exist_df.index
+    return compute_fetch_start(exist_idx, history_start=history_start, overlap_days=overlap_days)
 
 def update_equities(cfg: dict, storage_root: str):
     if not cfg.get("enabled", False):
         print("[INFO] equities disabled in config.")
         return
 
-    tickers       = cfg["universe"]
-    interval      = cfg.get("price_interval", "1d")
-    default_start = cfg.get("history_start", "2010-01-01")
-    mode          = cfg.get("mode", "incremental")
-    lookback_days = cfg.get("lookback_days", 365)
+    tickers        = cfg["universe"]
+    interval       = cfg.get("price_interval", "1d")
+    history_start  = cfg.get("history_start", "2010-01-01")
+    mode           = cfg.get("mode", "incremental")
+    lookback_days  = int(cfg.get("lookback_days", 365))
+    overlap_days   = int(cfg.get("overlap_days", 5))
+
+    # gentle retry knobs
+    max_attempts   = int(cfg.get("max_attempts", 3))
+    base_sleep     = float(cfg.get("base_sleep", 1.5))
+    between_sleep  = float(cfg.get("between_sleep", 0.35))
+
+    print(f"[INFO] Equities mode={mode} interval={interval} "
+          f"(history_start={history_start}, lookback_days={lookback_days}, overlap_days={overlap_days})")
+    print(f"[INFO] Rate limit: attempts={max_attempts}, base_sleep={base_sleep}s, between={between_sleep}s")
 
     for t in tickers:
-        path   = parquet_path(storage_root, "equities", t)
-        exist  = load_parquet(path)
-        start  = _start_date(exist, default_start, mode, lookback_days)
+        path  = parquet_path(storage_root, "equities", t)
+        exist = load_parquet(path)
 
-        df = yf.download(t, start=start, interval=interval,
-                         auto_adjust=True, progress=False)
-        if df.empty:
-            print(f"[WARN] {t}: no new data")
+        start = _mode_start(
+            mode=mode,
+            exist_df=exist,
+            history_start=history_start,
+            lookback_days=lookback_days,
+            overlap_days=overlap_days
+        )
+
+        df = None
+        err = None
+        for attempt in range(1, max_attempts + 1):
+            try:
+                df = yf.download(
+                    t, start=start, interval=interval,
+                    auto_adjust=True, progress=False
+                )
+                break
+            except Exception as e:
+                err = e
+                time.sleep(base_sleep * attempt)
+
+        if df is None or df.empty:
+            if err:
+                print(f"[WARN] {t}: download error after {max_attempts} attempts: {err}")
+            else:
+                print(f"[INFO] {t}: no rows returned for start={start}")
+            time.sleep(between_sleep)
             continue
 
+        # tidy columns/index
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = df.columns.get_level_values(0)
         df.columns = [str(c).strip().title() for c in df.columns]
+        df.index = pd.to_datetime(df.index); df.index.name = "Date"
 
-        df.index = pd.to_datetime(df.index)
-        df.index.name = "Date"
-
+        # upsert (concat/sort/dedup) handled inside incremental_append
         incremental_append(df, path, index_name="Date")
-        print(f"[OK] {t}: mode={mode} saved -> {path}")
+        print(f"[OK] {t}: mode={mode} window={start}..today rows={len(df):,} -> {path}")
+
+        time.sleep(between_sleep)
 
 ```
 
@@ -210,6 +281,36 @@ from utils.helpers import ensure_dir
 RAW_EQUITIES_DIR = Path("data/raw/equities")
 
 # ---------- helpers ----------
+def _rolling_beta_alpha(ret_stock: pd.Series, ret_bench: pd.Series, win: int = 60):
+    both = pd.concat([ret_stock, ret_bench], axis=1).dropna()
+    both.columns = ["s", "m"]
+    cov = both["s"].rolling(win).cov(both["m"])
+    var = both["m"].rolling(win).var()
+    beta = cov / var
+    alpha = (both["s"].rolling(win).mean() - beta * both["m"].rolling(win).mean()) * 252
+    return beta, alpha
+
+def _drawdown(px: pd.Series):
+    roll_max = px.cummax()
+    dd = px / roll_max - 1.0
+    mdd = dd.min()
+    return dd, mdd
+
+def _atr(high: pd.Series, low: pd.Series, close: pd.Series, window: int = 14):
+    hl = (high - low).abs()
+    hc = (high - close.shift(1)).abs()
+    lc = (low - close.shift(1)).abs()
+    tr = pd.concat([hl, hc, lc], axis=1).max(axis=1)
+    return tr.rolling(window).mean()
+
+def _bollinger(px: pd.Series, window: int = 20, k: float = 2.0):
+    ma = px.rolling(window).mean()
+    sd = px.rolling(window).std()
+    upper = ma + k * sd
+    lower = ma - k * sd
+    pct_band = (px - lower) / (upper - lower)  # 0..1 position in band
+    return ma, upper, lower, pct_band
+
 def _safe_to_datetime_idx(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df.index = pd.to_datetime(df.index)
@@ -234,6 +335,7 @@ def _to_series(df: pd.DataFrame, col: str) -> pd.Series:
     return s
 
 def _compute_one_ticker_features(df: pd.DataFrame, ticker: str, cfg: dict) -> pd.DataFrame:
+    """Build per-ticker feature frame. RETURNS empty df if no usable price series."""
     if df.empty:
         return pd.DataFrame()
 
@@ -250,6 +352,10 @@ def _compute_one_ticker_features(df: pd.DataFrame, ticker: str, cfg: dict) -> pd
     SMA_WINDOWS = list(cfg.get("sma_windows", [20, 50]))
     EMA_WINDOWS = list(cfg.get("ema_windows", [20, 50]))
     RSI_PERIOD  = int(cfg.get("rsi_period", 14))
+    BOLL_W      = int(cfg.get("boll_window", 20))
+    ATR_W       = int(cfg.get("atr_window", 14))
+    SKEW_W      = int(cfg.get("skew_window", 60))
+    KURT_W      = int(cfg.get("kurt_window", 60))
 
     # robust close selection
     candidates = ["Adj Close", "Adj close", "close", "Close"]
@@ -275,47 +381,8 @@ def _compute_one_ticker_features(df: pd.DataFrame, ticker: str, cfg: dict) -> pd
 
     px = px.reindex(df.index)  # align
 
-    # features
-    ret = np.log(px).diff()
-    vol = ret.rolling(WIN_VOL).std() * np.sqrt(252)
-    sharpe = (ret.rolling(WIN_SHARPE).mean() * 252) / vol
-    mom = px.pct_change(WIN_RET)
-
-    feats = pd.DataFrame(index=df.index)
-    feats["close"] = px
-    feats["ret_1d_log"] = ret
-    feats["roll_vol_ann"] = vol
-    feats["roll_sharpe"] = sharpe
-    feats[f"mom_{WIN_RET}d"] = mom
-
-    for w in SMA_WINDOWS:
-        feats[f"sma_{w}"] = SMAIndicator(px, window=w).sma_indicator()
-    for w in EMA_WINDOWS:
-        feats[f"ema_{w}"] = EMAIndicator(px, window=w).ema_indicator()
-    feats[f"rsi_{RSI_PERIOD}"] = RSIIndicator(px, window=RSI_PERIOD).rsi()
-
-    macd = MACD(px)
-    feats["macd"] = macd.macd()
-    feats["macd_signal"] = macd.macd_signal()
-    feats["macd_hist"] = macd.macd_diff()
-
-    feats["ticker"] = ticker
-    return feats.dropna(how="all")
-
-# ---------- public entry point used by run_pipeline.py ----------
-def run_equity_features(cfg_eq_feat: dict):
-    """
-    Orchestrates equity feature engineering + basic plots.
-    Expects keys in config:
-      processed_path, plots_path, plots (bool)
-    """
-    processed_path = Path(cfg_eq_feat.get("processed_path", "data/processed"))
-    plots_path     = Path(cfg_eq_feat.get("plots_path", "output/plots"))
-    ensure_dir(processed_path)
-    ensure_dir(plots_path)
-
-    feats_list = []
-    files = sorted(RAW_EQUITIES_DIR.glob("*.parqu
+    # base features
+    ret
 ...
 [truncated]
 ```
@@ -323,27 +390,64 @@ def run_equity_features(cfg_eq_feat: dict):
 ### `modules/futures.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
 
 ```py
+import time
 import pandas as pd
 import yfinance as yf
-from pathlib import Path
-from utils.helpers import parquet_path, incremental_append, load_parquet
+from utils.helpers import (
+    parquet_path, incremental_append, load_parquet, compute_fetch_start
+)
 
 def update_futures(cfg: dict, storage_root: str, default_start="2010-01-01"):
     if not cfg.get("enabled", False):
         return
-    tickers = cfg.get("tickers", [])
-    interval = cfg.get("price_interval","1d")
+
+    tickers       = cfg.get("tickers", [])
+    interval      = cfg.get("price_interval", "1d")
+    overlap_days  = int(cfg.get("overlap_days", 5))
+    history_start = cfg.get("history_start", default_start)
+
+    # reuse gentle knobs if provided
+    max_attempts  = int(cfg.get("max_attempts", 3))
+    base_sleep    = float(cfg.get("base_sleep", 1.5))
+    between_sleep = float(cfg.get("between_sleep", 0.35))
+
     for t in tickers:
         stem = t.replace("=F","")
-        path = parquet_path(storage_root, "futures", stem)
+        path  = parquet_path(storage_root, "futures", stem)
         exist = load_parquet(path)
-        start = (exist.index.max() + pd.Timedelta(days=1)).date().isoformat() if not exist.empty else default_start
-        df = yf.download(t, start=start, interval=interval, auto_adjust=False, progress=False)
-        if df.empty:
+        start = compute_fetch_start(
+            exist.index if not exist.empty else None,
+            history_start=history_start,
+            overlap_days=overlap_days
+        )
+
+        df = None; err = None
+        for attempt in range(1, max_attempts + 1):
+            try:
+                df = yf.download(
+                    t, start=start, interval=interval,
+                    auto_adjust=False, progress=False
+                )
+                break
+            except Exception as e:
+                err = e
+                time.sleep(base_sleep * attempt)
+
+        if df is None or df.empty:
+            if err:
+                print(f"[WARN] {t}: download error after {max_attempts} attempts: {err}")
+            else:
+                print(f"[INFO] {t}: no rows returned for start={start}")
+            time.sleep(between_sleep)
             continue
+
         df = df.rename(columns=str.capitalize)
         df.index = pd.to_datetime(df.index); df.index.name = "Date"
+
         incremental_append(df, path, index_name="Date")
+        print(f"[OK] {t}: window={start}..today rows={len(df):,} -> {path}")
+
+        time.sleep(between_sleep)
 
 ```
 
@@ -385,24 +489,41 @@ def update_options(cfg: dict, storage_root: str):
 ### `modules/rates.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
 
 ```py
+import time
 import pandas as pd
 from pandas_datareader import data as pdr
-from utils.helpers import parquet_path, incremental_append, load_parquet
+from utils.helpers import parquet_path, incremental_append, load_parquet, compute_fetch_start
 
 def update_rates(cfg: dict, storage_root: str):
     if not cfg.get("enabled", False):
         return
-    series = cfg.get("fred_series", [])
-    start = cfg.get("start","2010-01-01")
+
+    series        = cfg.get("fred_series", [])
+    history_start = cfg.get("start", "2010-01-01")
+    overlap_days  = int(cfg.get("overlap_days", 5))
+
     for s in series:
-        path = parquet_path(storage_root, "rates", s)
+        path  = parquet_path(storage_root, "rates", s)
         exist = load_parquet(path)
-        sdate = (exist.index.max() + pd.Timedelta(days=1)).date().isoformat() if not exist.empty else start
-        df = pdr.DataReader(s, "fred", sdate)   # index=Date, col=series
-        if df.empty:
+        start = compute_fetch_start(
+            exist.index if not exist.empty else None,
+            history_start=history_start,
+            overlap_days=overlap_days
+        )
+
+        try:
+            df = pdr.DataReader(s, "fred", start)   # index=Date, col=series
+        except Exception as e:
+            print(f"[WARN] {s}: download error: {e}")
             continue
+
+        if df.empty:
+            print(f"[INFO] {s}: no rows returned for start={start}")
+            continue
+
         df.index = pd.to_datetime(df.index); df.index.name = "Date"
         incremental_append(df, path, index_name="Date")
+        print(f"[OK] {s}: window={start}..today rows={len(df):,} -> {path}")
 
 ```
 
@@ -634,8 +755,8 @@ if __name__ == "__main__":
 ### `utils/helpers.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
 
 ```py
-import pandas as pd
 from pathlib import Path
+import pandas as pd
 
 def ensure_dir(path: Path):
     """Create directory if it doesn't exist."""
@@ -653,7 +774,10 @@ def load_parquet(path: Path) -> pd.DataFrame:
     return pd.read_parquet(path) if Path(path).exists() else pd.DataFrame()
 
 def incremental_append(df_new: pd.DataFrame, path: Path, index_name: str = None):
-    """Append new data to an existing parquet file without duplicates."""
+    """
+    Append new data to an existing parquet file without duplicates.
+    Upsert semantics: concat -> sort -> drop duplicate index (keep last).
+    """
     df_old = load_parquet(path)
     if df_old.empty:
         df_all = df_new.copy()
@@ -663,5 +787,21 @@ def incremental_append(df_new: pd.DataFrame, path: Path, index_name: str = None)
     if index_name:
         df_all.index.name = index_name
     df_all.to_parquet(path)
+
+# ---------- NEW: smart fetch window ----------
+def compute_fetch_start(existing_index, history_start="2010-01-01", overlap_days=5) -> str:
+    """
+    Decide a safe, small window to fetch:
+      start = max(history_start, last_date - overlap_days), clamped to today.
+    Returns ISO date string.
+    """
+    today = pd.Timestamp.today().normalize()
+    if existing_index is None or len(existing_index) == 0:
+        return pd.Timestamp(history_start).date().isoformat()
+    last = pd.to_datetime(max(existing_index)).normalize()
+    start = (last - pd.Timedelta(days=overlap_days)).normalize()
+    start = max(pd.Timestamp(history_start), start)
+    start = min(start, today)
+    return start.date().isoformat()
 
 ```
