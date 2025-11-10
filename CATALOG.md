@@ -4,6 +4,36 @@ _Branch: **main** | Files: **15**_
 
 ## Index
 
+- `CATALOG.md`  (25 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+- `config/config.yaml`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+- `modules/__init__.py`  (0 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
+- `modules/equities.py`  (2 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
+- `modules/features.py`  (6 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
+- `modules/futures.py`  (929 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
+- `modules/options.py`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/rates.py`  (776 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
+- `quick_check.py`  (714 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
+- `Readme.md`  (229 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
+- `requirements.txt`  (135 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
+- `run_pipeline.py`  (2 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
+- `utils/__init__.py`  (0 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
+- `utils/build_catalog.py`  (2 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
+- `utils/helpers.py`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
+
+---
+
+## File Previews
+
+
+### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+
+```md
+# IKF Market Pipeline – Code Catalog
+
+_Branch: **main** | Files: **15**_
+
+## Index
+
 - `CATALOG.md`  (25 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
 - `config/config.yaml`  (1 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
 - `modules/__init__.py`  (0 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
@@ -41,36 +71,6 @@ _Branch: **main** | Files: **15**_
 - `modules/features.py`  (7 KB, modified 2025-11-08 22:10:38Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
 - `modules/futures.py`  (862 B, modified 2025-11-08 17:58:04Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
 - `modules/options.py`  (1 KB, modified 2025-11-08 17:56:51Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
-- `modules/rates.py`  (709 B, modified 2025-11-08 17:57:50Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
-- `quick_check.py`  (714 B, modified 2025-11-08 22:10:35Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
-- `Readme.md`  (229 B, modified 2025-11-09 13:31:20Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
-- `requirements.txt`  (94 B, modified 2025-11-09 13:18:02Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
-- `run_pipeline.py`  (2 KB, modified 2025-11-08 22:10:46Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
-- `utils/__init__.py`  (0 B, modified 2025-11-08 17:53:54Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
-- `utils/build_catalog.py`  (2 KB, modified 2025-11-09 14:34:12Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
-- `utils/helpers.py`  (1 KB, modified 2025-11-08 17:43:30Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
-
----
-
-## File Previews
-
-
-### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-
-```md
-# IKF Market Pipeline – Code Catalog
-
-_Branch: **main** | Files: **14**_
-
-## Index
-
-- `config/config.yaml`  (1 KB, modified 2025-11-09 13:37:06Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
-- `modules/__init__.py`  (0 B, modified 2025-11-08 17:53:54Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (2 KB, modified 2025-11-08 22:10:48Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
-- `modules/features.py`  (7 KB, modified 2025-11-08 22:10:38Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
-- `modules/futures.py`  (862 B, modified 2025-11-08 17:58:04Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-08 17:56:51Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
-- `modules/rates.py`  (709 B, modified 2025-11-08 17:57:50Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modul
 ...
 [truncated]
 ```
@@ -187,11 +187,10 @@ def update_equities(cfg: dict, storage_root: str):
         df.columns = [str(c).strip().title() for c in df.columns]
 
         df.index = pd.to_datetime(df.index)
-        if df.index.name is None:
-            df.index.name = "Date"
+        df.index.name = "Date"
 
         incremental_append(df, path, index_name="Date")
-        print(f"[OK] {t}: {mode=} saved -> {path}")
+        print(f"[OK] {t}: mode={mode} saved -> {path}")
 
 ```
 
@@ -303,20 +302,20 @@ def _compute_one_ticker_features(df: pd.DataFrame, ticker: str, cfg: dict) -> pd
     feats["ticker"] = ticker
     return feats.dropna(how="all")
 
-def build_equity_features(cfg_eq_feat: dict) -> pd.DataFrame:
-    files = sorted(RAW_EQUITIES_DIR.glob("*.parquet"))
-    out = []
-    for f in files:
-        tkr = f.stem
-        try:
-            df = pd.read_parquet(f)
-            if df.empty:
-                continue
-            if isinstance(df.columns, pd.MultiIndex):       # flatten if needed
-                df.columns = df.columns.get_level_values(0)
-            df.columns = [str(c).strip() for c in df.columns]
+# ---------- public entry point used by run_pipeline.py ----------
+def run_equity_features(cfg_eq_feat: dict):
+    """
+    Orchestrates equity feature engineering + basic plots.
+    Expects keys in config:
+      processed_path, plots_path, plots (bool)
+    """
+    processed_path = Path(cfg_eq_feat.get("processed_path", "data/processed"))
+    plots_path     = Path(cfg_eq_feat.get("plots_path", "output/plots"))
+    ensure_dir(processed_path)
+    ensure_dir(plots_path)
 
-            feats = _compute_one_ticker_features(df, tkr, cfg_eq_fea
+    feats_list = []
+    files = sorted(RAW_EQUITIES_DIR.glob("*.parqu
 ...
 [truncated]
 ```
@@ -340,9 +339,10 @@ def update_futures(cfg: dict, storage_root: str, default_start="2010-01-01"):
         exist = load_parquet(path)
         start = (exist.index.max() + pd.Timedelta(days=1)).date().isoformat() if not exist.empty else default_start
         df = yf.download(t, start=start, interval=interval, auto_adjust=False, progress=False)
-        if df.empty: 
+        if df.empty:
             continue
         df = df.rename(columns=str.capitalize)
+        df.index = pd.to_datetime(df.index); df.index.name = "Date"
         incremental_append(df, path, index_name="Date")
 
 ```
@@ -399,8 +399,9 @@ def update_rates(cfg: dict, storage_root: str):
         exist = load_parquet(path)
         sdate = (exist.index.max() + pd.Timedelta(days=1)).date().isoformat() if not exist.empty else start
         df = pdr.DataReader(s, "fred", sdate)   # index=Date, col=series
-        if df.empty: 
+        if df.empty:
             continue
+        df.index = pd.to_datetime(df.index); df.index.name = "Date"
         incremental_append(df, path, index_name="Date")
 
 ```
@@ -463,7 +464,11 @@ ta
 matplotlib
 seaborn
 
-# Optional but useful
+# Parquet + data sources
+pyarrow
+pandas-datareader
+
+# Optional
 rich
 jupyter
 
