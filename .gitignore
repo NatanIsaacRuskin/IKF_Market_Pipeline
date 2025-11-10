@@ -3,3 +3,5 @@ output/
 backups/
 **/.ipynb_checkpoints/
 *.log
+__pycache__/
+*.pyc
