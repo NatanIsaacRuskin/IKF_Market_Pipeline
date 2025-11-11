@@ -1,5 +1,41 @@
 # IKF Market Pipeline – Code Catalog
 
+_Branch: **main** | Files: **21**_
+
+## Index
+
+- `CATALOG.md`  (42 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+- `config/composites_specs/IKF_AI_Megacap.csv`  (75 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_AI_Megacap.csv)
+- `config/composites_specs/IKF_EnergyPulse.csv`  (59 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_EnergyPulse.csv)
+- `config/config.yaml`  (2 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+- `modules/__init__.py`  (0 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
+- `modules/composites.py`  (7 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/composites.py)
+- `modules/equities.py`  (4 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
+- `modules/features.py`  (10 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
+- `modules/features_dedup.py`  (4 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features_dedup.py)
+- `modules/futures.py`  (2 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
+- `modules/options.py`  (1 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/ranking.py`  (9 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/ranking.py)
+- `modules/rates.py`  (1 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
+- `modules/report_equities.py`  (2 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/report_equities.py)
+- `quick_check.py`  (714 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
+- `Readme.md`  (2 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
+- `requirements.txt`  (144 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
+- `run_pipeline.py`  (6 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
+- `utils/__init__.py`  (0 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
+- `utils/build_catalog.py`  (2 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
+- `utils/helpers.py`  (2 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
+
+---
+
+## File Previews
+
+
+### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+
+```md
+# IKF Market Pipeline – Code Catalog
+
 _Branch: **main** | Files: **18**_
 
 ## Index
@@ -40,50 +76,45 @@ _Branch: **main** | Files: **15**_
 - `CATALOG.md`  (25 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
 - `config/config.yaml`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
 - `modules/__init__.py`  (0 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (4 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
-- `modules/features.py`  (10 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
-- `modules/futures.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
-- `modules/rates.py`  (1 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
-- `quick_check.py`  (714 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
-- `Readme.md`  (229 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
-- `requirements.txt`  (135 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
-- `run_pipeline.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
-- `utils/__init__.py`  (0 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
-- `utils/build_catalog.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
-- `utils/helpers.py`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
-
----
-
-## File Previews
-
-
-### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-
-```md
-# IKF Market Pipeline – Code Catalog
-
-_Branch: **main** | Files: **15**_
-
-## Index
-
-- `CATALOG.md`  (25 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-- `config/config.yaml`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
-- `modules/__init__.py`  (0 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (2 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
-- `modules/features.py`  (6 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
-- `modules/futures.py`  (929 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/equities.py`  (4 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipelin
 ...
 [truncated]
+```
+
+### `config/composites_specs/IKF_AI_Megacap.csv`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_AI_Megacap.csv)
+
+```csv
+ticker,weight
+NVDA,0.22
+MSFT,0.20
+AAPL,0.16
+GOOGL,0.16
+META,0.13
+AMZN,0.13
+
+```
+
+### `config/composites_specs/IKF_EnergyPulse.csv`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_EnergyPulse.csv)
+
+```csv
+ticker,weight
+XOM,0.25
+CVX,0.25
+SLB,0.20
+COP,0.15
+EOG,0.15
+
 ```
 
 ### `config/config.yaml`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
 
 ```yaml
+# FILE: config/config.yaml
+# IKF MARKET PIPELINE — CONFIG
+
 storage:
-  format: parquet            # how we save files
-  root: "data/raw"           # where raw market files go
+  root: "data/raw"
+  format: "parquet"
   timezone: "US/Eastern"
 
 defaults:
@@ -91,56 +122,38 @@ defaults:
 
 equities:
   enabled: true
-  universe: ["SPY","AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
+  universe: ["SPY"]         # runtime auto-adds composite members + benchmarks
   price_interval: "1d"
-
-  # pick ONE mode:
-  # - full         : fetch from history_start → today (rebuilds files)
-  # - incremental  : append small window near today (uses overlap_days)
-  # - recent       : pull a rolling window (lookback_days) and merge
-  mode: "incremental"          # "full" | "incremental" | "recent"
-  lookback_days: 365           # only used when mode = "recent"
-
-  # smart incremental window
-  overlap_days: 5              # re-fetch last N days each run to heal revisions
-
-  # gentle rate limiting / retries
+  mode: "incremental"       # overridden by --recent/--full
+  lookback_days: 365
+  overlap_days: 5
   max_attempts: 3
   base_sleep: 1.5
   between_sleep: 0.35
 
 options:
   enabled: true
-  underlying: ["AAPL","MSFT","SPY"]
-  expires: "nearest_3"         # nearest N expiries
+  underlying: ["SPY"]
+  expires: "nearest_3"
   chains: ["calls","puts"]
 
 futures:
   enabled: true
-  tickers: ["ES=F","NQ=F","CL=F","GC=F","ZN=F"]
+  tickers: ["ES=F"]
   price_interval: "1d"
   history_start: "2010-01-01"
   overlap_days: 5
-  # (optional) reuse gentle knobs; uncomment if you want:
-  # max_attempts: 3
-  # base_sleep: 1.5
-  # between_sleep: 0.35
 
 rates:
   enabled: true
-  fred_series:
-    - "SOFR"
-    - "DGS2"
-    - "DGS5"
-    - "DGS10"
-    - "DGS30"
+  fred_series: ["SOFR","DGS2","DGS5","DGS10","DGS30"]
   start: "2010-01-01"
   overlap_days: 5
 
 features:
   equities:
     enabled: true
-    benchmark: "SPY"           # for beta/alpha
+    benchmark: "SPY"
     win_ret: 20
     win_vol: 60
     win_sharpe: 60
@@ -155,12 +168,137 @@ features:
     processed_path: "data/processed"
     plots_path: "output/plots"
 
+analysis:
+  benchmark: "SPY"
+  topk: 25
+  deciles: 10
+
+# IKF COMPOSITES (CSV > inline > equal-weight)
+composites:
+  - name: "IKF_AI_Megacap"
+    tickers: ["NVDA","MSFT","AAPL","GOOGL","META","AMZN"]
+    weights_csv: "config/composites_specs/IKF_AI_Megacap.csv"   # ← UNCOMMENT / add this
+    # weights: [0.22, 0.20, 0.16, 0.16, 0.13, 0.13]             # ← optional to leave, ignored when CSV present
+    benchmark: "SPY"
+    rebalance: "none"
+    start: "2015-01-01"
+
+  - name: "IKF_EnergyPulse"
+    tickers: ["XOM","CVX","SLB","COP","EOG"]
+    weights_csv: "config/composites_specs/IKF_EnergyPulse.csv"  # ← UNCOMMENT / add this
+    # weights: [0.25, 0.25, 0.20, 0.15, 0.15]                  # ← optional to leave, ignored when CSV present
+    benchmark: "SPY"
+    rebalance: "monthly"
+    start: "2012-01-01"
+
+
 ```
 
 ### `modules/__init__.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
 
 ```py
 
+```
+
+### `modules/composites.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/composites.py)
+
+```py
+# FILE: modules/composites.py
+from __future__ import annotations
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Optional, List, Dict
+import pandas as pd
+import numpy as np
+
+# expects utils.helpers to provide these (already in your repo)
+from utils.helpers import parquet_path, load_parquet
+
+"""
+Composites builder
+- Builds composite price time series from RAW equities parquet (no feature dependency)
+- IKF weights via inline `weights:` or `weights_csv:` (CSV wins if both supplied)
+- Rebalancing: "none" | "monthly" | "quarterly" (default "none")
+- Writes data/processed/composites/<name>_prices.parquet
+- Optionally writes output/snapshots/<name>_snapshot.csv if rank_today provided
+CSV format for weights:
+    ticker,weight
+    NVDA,0.22
+    MSFT,0.20
+"""
+
+@dataclass
+class CompositeSpec:
+    name: str
+    tickers: List[str]
+    weights: Optional[List[float]] = None
+    weights_csv: Optional[str] = None
+    benchmark: Optional[str] = None
+    rebalance: str = "none"
+    start: Optional[str] = None
+
+def _ensure_cols(df: pd.DataFrame, cols: List[str]):
+    miss = [c for c in cols if c not in df.columns]
+    if miss: raise KeyError(f"Missing columns: {miss}")
+
+def _read_prices_from_raw(storage_root: str, tickers: List[str]) -> pd.DataFrame:
+    out = []
+    for t in tickers:
+        p = parquet_path(storage_root, "equities", t)
+        df = load_parquet(p)
+        if df.empty: continue
+        cols = {str(c).lower(): c for c in df.columns}
+        close_col = None
+        for cand in ("adj close", "close"):
+            if cand in cols: close_col = cols[cand]; break
+        if close_col is None: continue
+        s = pd.to_numeric(df[close_col].squeeze(), errors="coerce")
+        s.index = pd.to_datetime(s.index); s.name = "close"
+        tmp = s.reset_index().rename(columns={s.index.name or "index": "date"})
+        tmp["ticker"] = t.upper()
+        out.append(tmp[["date","ticker","close"]])
+    if not out:
+        return pd.DataFrame(columns=["date","ticker","close"])
+    dfall = pd.concat(out, ignore_index=True)
+    return dfall.sort_values(["ticker","date"]).dropna(subset=["close"])
+
+def _normalize_weights(tickers: List[str], weights: Optional[List[float]], weights_csv: Optional[str]) -> pd.DataFrame:
+    """Priority: weights_csv > inline weights > equal-weight fallback."""
+    if weights_csv:
+        wdf = pd.read_csv(weights_csv)
+        _ensure_cols(wdf, ["ticker","weight"])
+        wdf["ticker"] = wdf["ticker"].astype(str).str.upper()
+        wdf = wdf[wdf["ticker"].isin([t.upper() for t in tickers])].copy()
+        if wdf.empty: raise ValueError(f"weights_csv={weights_csv} has no rows for declared tickers.")
+        w = wdf["weight"].astype(float).values
+        s = np.nansum(w)
+        if not np.isfinite(s) or s <= 0: raise ValueError("Invalid weights in CSV; sum must be > 0.")
+        wdf["weight"] = wdf["weight"] / s
+        return wdf[["ticker","weight"]]
+    if weights is not None:
+        if len(weights) != len(tickers): raise ValueError("Inline 'weights' length must match 'tickers'.")
+        w = np.asarray(weights, dtype=float)
+        if np.any(~np.isfinite(w)) or w.sum() <= 0: raise ValueError("Inline weights must be finite and sum>0.")
+        w = w / w.sum()
+        return pd.DataFrame({"ticker":[t.upper() for t in tickers], "weight": w})
+    n = len(tickers)
+    if n == 0: raise ValueError("No tickers provided.")
+    eq = np.repeat(1.0/n, n)
+    return pd.DataFrame({"ticker":[t.upper() for t in tickers], "weight": eq})
+
+def _period_starts(dates: pd.DatetimeIndex, freq: str) -> pd.Series:
+    if freq == "M":
+        lab = pd.Series(dates.to_period("M").astype(str), index=dates)
+    elif freq == "Q":
+        lab = pd.Series(dates.to_period("Q").astype(str), index=dates)
+    else:
+        return pd.Series(False, index=dates)
+    return lab.ne(lab.shift(1)).fillna(True)
+
+def _build_composite_series(prices: pd.DataFrame, spec: CompositeSpec) -> pd.DataFrame:
+    _ensure_cols(prices, ["date","
+...
+[truncated]
 ```
 
 ### `modules/equities.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
@@ -873,13 +1011,62 @@ for f in sorted(Path("data/raw/options/AAPL").glob("calls_*.parquet")):
 ```md
 # IKF Market Pipeline
 
-Universal market data pipeline (equities, options, futures, rates).
+A universal market data and analytics pipeline for report generation
+Fetches and updates raw market data, engineers features, computes rankings, and generates daily reports.
 
-## Setup
-```bash
+---
+
+## 🚀 Quick Start
+
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+
+### Run the Pipeline
+
+• **Default (full analysis)**  
+Fetches data, builds features, computes rankings, and writes a Markdown report.  
+`python run_pipeline.py`
+
+• **Data-only mode**  
+Skip analytics and just update raw data.  
+`python run_pipeline.py --raw-only`
+
+• **Optional flags**  
+--recent N → rebuild last N days (e.g. `--recent 30`)  
+--full   → full backfill from history_start  
+--asset X → run a single asset updater (equities, futures, rates, options)  
+--config Y → custom config path (default `config/config.yaml`)
+
+---
+
+## ⚙️ Output
+
+data/raw/    incrementally updated market data  
+data/processed/equity_features.parquet engineered features  
+output/equity_rank_snapshot.csv    latest composite rankings  
+output/reports/equities_report.md   markdown report summary  
+
+---
+
+## 🧩 Key Features
+
+• Incremental daily updates with overlap healing  
+• Feature engineering: momentum, volatility, RSI, SMA/EMA, beta, etc.  
+• Cross-sectional ranking and composite scoring  
+• Automated reporting and persistent rank history  
+
+---
+
+## 🕒 Example Cron (Linux)
+
+# Run every weekday at 07:30 Israel time  
+TZ=Asia/Jerusalem  
+30 7 * * 1-5 /usr/bin/env bash -lc 'cd /path/to/IKF_Market_Pipeline && python run_pipeline.py >> logs/daily.log 2>&1'
+
+---
+
+Maintained as part of the **I Know First Market Intelligence Pipeline**.
 
 ```
 
@@ -909,13 +1096,11 @@ jupyter
 ### `run_pipeline.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
 
 ```py
-# run_pipeline.py
+# FILE: run_pipeline.py
 from __future__ import annotations
-
-import argparse
-import yaml
+import argparse, sys, yaml
+from pathlib import Path
 import pandas as pd
-import numpy as np
 
 from modules.equities import update_equities
 from modules.options import update_options
@@ -925,88 +1110,72 @@ from modules.features import run_equity_features
 from modules.features_dedup import finalize_equity_features_file
 from modules.ranking import compute_composite_scores, save_rank_snapshot, build_metrics_cfg_from_df
 from modules.report_equities import make_equity_report
+from modules.composites import build_composites_from_raw
 
 def load_config(path: str = "config/config.yaml") -> dict:
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
-def main():
-    ap = argparse.ArgumentParser(description="IKF Universal Market Pipeline")
+def _parse_composite_selection(arg: str | None) -> tuple[str, set[str]]:
+    if not arg or arg.strip().lower() == "all": return ("all", set())
+    if arg.strip().lower() == "none": return ("none", set())
+    names = {x.strip() for x in arg.split(",") if x.strip()}
+    return ("some", names)
 
-    ap.add_argument("--asset", choices=["all","equities","options","futures","rates"], default="all",
-                    help="which asset updater(s) to run")
-    ap.add_argument("--features", action="store_true",
-                    help="run equity feature engineering")
-    ap.add_argument("--rank", action="store_true",
-                    help="compute cross-sectional composite ranks")
-    ap.add_argument("--report", action="store_true",
-                    help="generate Markdown equities report")
+def main(argv: list[str] | None = None):
+    ap = argparse.ArgumentParser(
+        description="IKF Market Pipeline — default runs full analysis. Use --raw-only to skip analytics; use --composites to control composites."
+    )
+    ap.add_argument("--asset", choices=["all","equities","options","futures","rates"], default="all")
+    ap.add_argument("--config", default="config/config.yaml")
+    ap.add_argument("--raw-only", action="store_true", help="Only update raw data; skip features/ranking/report")
+    ap.add_argument("--full", action="store_true", help="Full backfill for equities from history_start")
+    ap.add_argument("--recent", type=int, default=None, help="Rebuild last N days for equities (e.g., 30)")
+    ap.add_argument("--composites", default="all",
+                    help="Build 'all' (default), 'none', or a comma-separated list of composite names")
+    args = ap.parse_args(argv)
 
-    ap.add_argument("--config", default="config/config.yaml",
-                    help="path to YAML config")
-
-    # one-off backfill controls for equities
-    ap.add_argument("--full", action="store_true",
-                    help="force full backfill for equities (start from history_start)")
-    ap.add_argument("--recent", type=int, default=None,
-                    help="force recent backfill for equities using N lookback days")
-
-    args = ap.parse_args()
     cfg = load_config(args.config)
-
     root = cfg["storage"]["root"]
 
-    # ---- equities updater config (merge defaults + equities block) ----
+    # equities updater config
     eq_cfg = (cfg.get("defaults", {}) | cfg.get("equities", {})).copy()
     if args.full:
         eq_cfg["mode"] = "full"
     if args.recent is not None:
-        eq_cfg["mode"] = "recent"
-        eq_cfg["lookback_days"] = args.recent
+        eq_cfg["mode"] = "recent"; eq_cfg["lookback_days"] = int(args.recent)
 
-    # ---- run updaters ----
-    if args.asset in ("all", "equities"):
-        update_equities(eq_cfg, root)
-    if args.asset in ("all", "options"):
-        update_options(cfg.get("options", {}), root)
-    if args.asset in ("all", "futures"):
-        update_futures(cfg.get("futures", {}), root)
-    if args.asset in ("all", "rates"):
-        update_rates(cfg.get("rates", {}), root)
+    # composites selection + auto-extend universe
+    mode, pick = _parse_composite_selection(args.composites)
+    all_comps = cfg.get("composites", []) or []
+    selected_comps = [] if mode=="none" else ([c for c in all_comps if c.get("name") in pick] if mode=="some" else all_comps)
+    if selected_comps:
+        composite_members = {t.upper() for c in selected_comps for t in c.get("tickers", [])}
+        composite_bench   = {str(c.get("benchmark")).upper() for c in selected_comps if c.get("benchmark")} - {None,"NONE","NULL"}
+        base_universe = set(t.upper() for t in eq_cfg.get("universe", []))
+        merged_universe = sorted(base_universe | composite_members | composite_bench)
+        if merged_universe != sorted(base_universe):
+            print(f"[INFO] Expanding equities.universe with composites ({len(merged_universe)} tickers).")
+        eq_cfg["universe"] = merged_universe
 
-    # ---- features (equities) ----
-    feats_conf = cfg.get("features", {}).get("equities", {})
-    processed_dir = feats_conf.get("processed_path", "data/processed")
-    feats_path = f"{processed_dir}/equity_features.parquet"
+    # raw updaters
+    if args.asset in ("all","equities"): update_equities(eq_cfg, root)
+    if args.asset in ("all","options"):  update_options(cfg.get("options", {}), root)
+    if args.asset in ("all","futures"):  update_futures(cfg.get("futures", {}), root)
+    if args.asset in ("all","rates"):    update_rates(cfg.get("rates", {}), root)
 
-    if args.features:
-        run_equity_features(feats_conf)
-        print("[OK] Equity feature engineering complete.")
-        # EARLY DEDUP: enforce unique (date,ticker) before anything downstream
-        finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
+    # build composites from RAW (post raw updates)
+    rank_today_df = None
+    if selected_comps:
+        built = build_composites_from_raw(selected_comps, root, rank_today=None,
+                                          select_names=set(c.get("name") for c in selected_comps))
+        if built: print("[OK] Composite price series written:", built)
 
-    # ---- ranking + report ----
-    if args.rank or args.report:
-        # Guard: ensure features parquet exists and is deduped even if user didn't run --features in this session
-        finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
+    # analysis bundle (default ON unless --raw-only)
+    if args.raw_only:
+        return 0
 
-        feats = pd.read_parquet(feats_path)
-
-        # Auto-detect available metrics from the features parquet (robust to schema)
-        auto_cfg, chosen = build_metrics_cfg_from_df(feats)
-        print("[INFO] Composite metrics selected:")
-        for canon, actual in chosen.items():
-            print(f"   {canon:10s} -> {actual}")
-
-        scores = compute_composite_scores(
-            feats,
-            date_col="date",
-            id_col="ticker",
-            sector_col="sector",
-            metrics_cfg=auto_cfg,                # use auto-detected config
-            neutralize_vs=("beta_60d", "ln_mcap"),
-        )
-        snap_path = "output/equity_rank_snapsh
+    feats_conf = cfg.get("f
 ...
 [truncated]
 ```
