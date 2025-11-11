@@ -4,6 +4,42 @@ _Branch: **main** | Files: **21**_
 
 ## Index
 
+- `CATALOG.md`  (49 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+- `config/composites_specs/IKF_AI_Megacap.csv`  (75 B, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_AI_Megacap.csv)
+- `config/composites_specs/IKF_EnergyPulse.csv`  (59 B, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_EnergyPulse.csv)
+- `config/config.yaml`  (2 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+- `modules/__init__.py`  (0 B, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
+- `modules/composites.py`  (7 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/composites.py)
+- `modules/equities.py`  (4 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
+- `modules/features.py`  (10 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
+- `modules/features_dedup.py`  (4 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features_dedup.py)
+- `modules/futures.py`  (2 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
+- `modules/options.py`  (1 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/ranking.py`  (9 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/ranking.py)
+- `modules/rates.py`  (1 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
+- `modules/report_equities.py`  (2 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/report_equities.py)
+- `quick_check.py`  (714 B, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
+- `Readme.md`  (2 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
+- `requirements.txt`  (144 B, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
+- `run_pipeline.py`  (6 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
+- `utils/__init__.py`  (0 B, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
+- `utils/build_catalog.py`  (2 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
+- `utils/helpers.py`  (2 KB, modified 2025-11-11 20:21:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
+
+---
+
+## File Previews
+
+
+### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+
+```md
+# IKF Market Pipeline – Code Catalog
+
+_Branch: **main** | Files: **21**_
+
+## Index
+
 - `CATALOG.md`  (42 KB, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
 - `config/composites_specs/IKF_AI_Megacap.csv`  (75 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_AI_Megacap.csv)
 - `config/composites_specs/IKF_EnergyPulse.csv`  (59 B, modified 2025-11-11 20:09:27Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/composites_specs/IKF_EnergyPulse.csv)
@@ -40,43 +76,7 @@ _Branch: **main** | Files: **18**_
 
 ## Index
 
-- `CATALOG.md`  (30 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-- `config/config.yaml`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
-- `modules/__init__.py`  (0 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (4 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
-- `modules/features.py`  (10 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
-- `modules/features_dedup.py`  (4 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features_dedup.py)
-- `modules/futures.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
-- `modules/ranking.py`  (9 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/ranking.py)
-- `modules/rates.py`  (1 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
-- `modules/report_equities.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/report_equities.py)
-- `quick_check.py`  (714 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
-- `Readme.md`  (229 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
-- `requirements.txt`  (144 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
-- `run_pipeline.py`  (4 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
-- `utils/__init__.py`  (0 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
-- `utils/build_catalog.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
-- `utils/helpers.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
-
----
-
-## File Previews
-
-
-### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-
-```md
-# IKF Market Pipeline – Code Catalog
-
-_Branch: **main** | Files: **15**_
-
-## Index
-
-- `CATALOG.md`  (25 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-- `config/config.yaml`  (2 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
-- `modules/__init__.py`  (0 B, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (4 KB, modified 2025-11-10 14:26:10Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipelin
+- `CATALOG.md`  (30 KB, mod
 ...
 [truncated]
 ```
@@ -181,7 +181,7 @@ composites:
     # weights: [0.22, 0.20, 0.16, 0.16, 0.13, 0.13]             # ← optional to leave, ignored when CSV present
     benchmark: "SPY"
     rebalance: "none"
-    start: "2015-01-01"
+    start: "2010-01-01"
 
   - name: "IKF_EnergyPulse"
     tickers: ["XOM","CVX","SLB","COP","EOG"]
@@ -189,7 +189,7 @@ composites:
     # weights: [0.25, 0.25, 0.20, 0.15, 0.15]                  # ← optional to leave, ignored when CSV present
     benchmark: "SPY"
     rebalance: "monthly"
-    start: "2012-01-01"
+    start: "2010-01-01"
 
 
 ```
