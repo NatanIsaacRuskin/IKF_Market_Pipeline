@@ -70,7 +70,7 @@ composites:
     # weights: [0.22, 0.20, 0.16, 0.16, 0.13, 0.13]             # ← optional to leave, ignored when CSV present
     benchmark: "SPY"
     rebalance: "none"
-    start: "2015-01-01"
+    start: "2010-01-01"
 
   - name: "IKF_EnergyPulse"
     tickers: ["XOM","CVX","SLB","COP","EOG"]
@@ -78,5 +78,5 @@ composites:
     # weights: [0.25, 0.25, 0.20, 0.15, 0.15]                  # ← optional to leave, ignored when CSV present
     benchmark: "SPY"
     rebalance: "monthly"
-    start: "2012-01-01"
+    start: "2010-01-01"
 
