@@ -1,6 +1,9 @@
+# FILE: config/config.yaml
+# IKF MARKET PIPELINE — CONFIG
+
 storage:
-  format: parquet            # how we save files
-  root: "data/raw"           # where raw market files go
+  root: "data/raw"
+  format: "parquet"
   timezone: "US/Eastern"
 
 defaults:
@@ -8,56 +11,38 @@ defaults:
 
 equities:
   enabled: true
-  universe: ["SPY","AAPL","MSFT","NVDA","AMZN","GOOGL","META","TSLA","BRK-B","JPM","XOM"]
+  universe: ["SPY"]         # runtime auto-adds composite members + benchmarks
   price_interval: "1d"
-
-  # pick ONE mode:
-  # - full         : fetch from history_start → today (rebuilds files)
-  # - incremental  : append small window near today (uses overlap_days)
-  # - recent       : pull a rolling window (lookback_days) and merge
-  mode: "incremental"          # "full" | "incremental" | "recent"
-  lookback_days: 365           # only used when mode = "recent"
-
-  # smart incremental window
-  overlap_days: 5              # re-fetch last N days each run to heal revisions
-
-  # gentle rate limiting / retries
+  mode: "incremental"       # overridden by --recent/--full
+  lookback_days: 365
+  overlap_days: 5
   max_attempts: 3
   base_sleep: 1.5
   between_sleep: 0.35
 
 options:
   enabled: true
-  underlying: ["AAPL","MSFT","SPY"]
-  expires: "nearest_3"         # nearest N expiries
+  underlying: ["SPY"]
+  expires: "nearest_3"
   chains: ["calls","puts"]
 
 futures:
   enabled: true
-  tickers: ["ES=F","NQ=F","CL=F","GC=F","ZN=F"]
+  tickers: ["ES=F"]
   price_interval: "1d"
   history_start: "2010-01-01"
   overlap_days: 5
-  # (optional) reuse gentle knobs; uncomment if you want:
-  # max_attempts: 3
-  # base_sleep: 1.5
-  # between_sleep: 0.35
 
 rates:
   enabled: true
-  fred_series:
-    - "SOFR"
-    - "DGS2"
-    - "DGS5"
-    - "DGS10"
-    - "DGS30"
+  fred_series: ["SOFR","DGS2","DGS5","DGS10","DGS30"]
   start: "2010-01-01"
   overlap_days: 5
 
 features:
   equities:
     enabled: true
-    benchmark: "SPY"           # for beta/alpha
+    benchmark: "SPY"
     win_ret: 20
     win_vol: 60
     win_sharpe: 60
@@ -71,3 +56,27 @@ features:
     plots: true
     processed_path: "data/processed"
     plots_path: "output/plots"
+
+analysis:
+  benchmark: "SPY"
+  topk: 25
+  deciles: 10
+
+# IKF COMPOSITES (CSV > inline > equal-weight)
+composites:
+  - name: "IKF_AI_Megacap"
+    tickers: ["NVDA","MSFT","AAPL","GOOGL","META","AMZN"]
+    weights_csv: "config/composites_specs/IKF_AI_Megacap.csv"   # ← UNCOMMENT / add this
+    # weights: [0.22, 0.20, 0.16, 0.16, 0.13, 0.13]             # ← optional to leave, ignored when CSV present
+    benchmark: "SPY"
+    rebalance: "none"
+    start: "2015-01-01"
+
+  - name: "IKF_EnergyPulse"
+    tickers: ["XOM","CVX","SLB","COP","EOG"]
+    weights_csv: "config/composites_specs/IKF_EnergyPulse.csv"  # ← UNCOMMENT / add this
+    # weights: [0.25, 0.25, 0.20, 0.15, 0.15]                  # ← optional to leave, ignored when CSV present
+    benchmark: "SPY"
+    rebalance: "monthly"
+    start: "2012-01-01"
+

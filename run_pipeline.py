@@ -1,10 +1,8 @@
-# run_pipeline.py
+# FILE: run_pipeline.py
 from __future__ import annotations
-
-import argparse
-import yaml
+import argparse, sys, yaml
+from pathlib import Path
 import pandas as pd
-import numpy as np
 
 from modules.equities import update_equities
 from modules.options import update_options
@@ -14,98 +12,133 @@ from modules.features import run_equity_features
 from modules.features_dedup import finalize_equity_features_file
 from modules.ranking import compute_composite_scores, save_rank_snapshot, build_metrics_cfg_from_df
 from modules.report_equities import make_equity_report
+from modules.composites import build_composites_from_raw
 
 def load_config(path: str = "config/config.yaml") -> dict:
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
-def main():
-    ap = argparse.ArgumentParser(description="IKF Universal Market Pipeline")
+def _parse_composite_selection(arg: str | None) -> tuple[str, set[str]]:
+    if not arg or arg.strip().lower() == "all": return ("all", set())
+    if arg.strip().lower() == "none": return ("none", set())
+    names = {x.strip() for x in arg.split(",") if x.strip()}
+    return ("some", names)
 
-    ap.add_argument("--asset", choices=["all","equities","options","futures","rates"], default="all",
-                    help="which asset updater(s) to run")
-    ap.add_argument("--features", action="store_true",
-                    help="run equity feature engineering")
-    ap.add_argument("--rank", action="store_true",
-                    help="compute cross-sectional composite ranks")
-    ap.add_argument("--report", action="store_true",
-                    help="generate Markdown equities report")
+def main(argv: list[str] | None = None):
+    ap = argparse.ArgumentParser(
+        description="IKF Market Pipeline — default runs full analysis. Use --raw-only to skip analytics; use --composites to control composites."
+    )
+    ap.add_argument("--asset", choices=["all","equities","options","futures","rates"], default="all")
+    ap.add_argument("--config", default="config/config.yaml")
+    ap.add_argument("--raw-only", action="store_true", help="Only update raw data; skip features/ranking/report")
+    ap.add_argument("--full", action="store_true", help="Full backfill for equities from history_start")
+    ap.add_argument("--recent", type=int, default=None, help="Rebuild last N days for equities (e.g., 30)")
+    ap.add_argument("--composites", default="all",
+                    help="Build 'all' (default), 'none', or a comma-separated list of composite names")
+    args = ap.parse_args(argv)
 
-    ap.add_argument("--config", default="config/config.yaml",
-                    help="path to YAML config")
-
-    # one-off backfill controls for equities
-    ap.add_argument("--full", action="store_true",
-                    help="force full backfill for equities (start from history_start)")
-    ap.add_argument("--recent", type=int, default=None,
-                    help="force recent backfill for equities using N lookback days")
-
-    args = ap.parse_args()
     cfg = load_config(args.config)
-
     root = cfg["storage"]["root"]
 
-    # ---- equities updater config (merge defaults + equities block) ----
+    # equities updater config
     eq_cfg = (cfg.get("defaults", {}) | cfg.get("equities", {})).copy()
     if args.full:
         eq_cfg["mode"] = "full"
     if args.recent is not None:
-        eq_cfg["mode"] = "recent"
-        eq_cfg["lookback_days"] = args.recent
+        eq_cfg["mode"] = "recent"; eq_cfg["lookback_days"] = int(args.recent)
 
-    # ---- run updaters ----
-    if args.asset in ("all", "equities"):
-        update_equities(eq_cfg, root)
-    if args.asset in ("all", "options"):
-        update_options(cfg.get("options", {}), root)
-    if args.asset in ("all", "futures"):
-        update_futures(cfg.get("futures", {}), root)
-    if args.asset in ("all", "rates"):
-        update_rates(cfg.get("rates", {}), root)
+    # composites selection + auto-extend universe
+    mode, pick = _parse_composite_selection(args.composites)
+    all_comps = cfg.get("composites", []) or []
+    selected_comps = [] if mode=="none" else ([c for c in all_comps if c.get("name") in pick] if mode=="some" else all_comps)
+    if selected_comps:
+        composite_members = {t.upper() for c in selected_comps for t in c.get("tickers", [])}
+        composite_bench   = {str(c.get("benchmark")).upper() for c in selected_comps if c.get("benchmark")} - {None,"NONE","NULL"}
+        base_universe = set(t.upper() for t in eq_cfg.get("universe", []))
+        merged_universe = sorted(base_universe | composite_members | composite_bench)
+        if merged_universe != sorted(base_universe):
+            print(f"[INFO] Expanding equities.universe with composites ({len(merged_universe)} tickers).")
+        eq_cfg["universe"] = merged_universe
 
-    # ---- features (equities) ----
+    # raw updaters
+    if args.asset in ("all","equities"): update_equities(eq_cfg, root)
+    if args.asset in ("all","options"):  update_options(cfg.get("options", {}), root)
+    if args.asset in ("all","futures"):  update_futures(cfg.get("futures", {}), root)
+    if args.asset in ("all","rates"):    update_rates(cfg.get("rates", {}), root)
+
+    # build composites from RAW (post raw updates)
+    rank_today_df = None
+    if selected_comps:
+        built = build_composites_from_raw(selected_comps, root, rank_today=None,
+                                          select_names=set(c.get("name") for c in selected_comps))
+        if built: print("[OK] Composite price series written:", built)
+
+    # analysis bundle (default ON unless --raw-only)
+    if args.raw_only:
+        return 0
+
     feats_conf = cfg.get("features", {}).get("equities", {})
     processed_dir = feats_conf.get("processed_path", "data/processed")
     feats_path = f"{processed_dir}/equity_features.parquet"
 
-    if args.features:
-        run_equity_features(feats_conf)
-        print("[OK] Equity feature engineering complete.")
-        # EARLY DEDUP: enforce unique (date,ticker) before anything downstream
-        finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
+    # 1) features
+    try:
+        run_equity_features(feats_conf); print("[OK] Equity feature engineering complete.")
+    except Exception as e:
+        print(f"[ERR] Feature engineering failed: {e}"); return 2
 
-    # ---- ranking + report ----
-    if args.rank or args.report:
-        # Guard: ensure features parquet exists and is deduped even if user didn't run --features in this session
-        finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
+    # 2) dedup
+    finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
 
+    # 3) ranking
+    try:
         feats = pd.read_parquet(feats_path)
+    except FileNotFoundError:
+        print(f"[ERR] Missing features parquet: {feats_path}"); return 2
 
-        # Auto-detect available metrics from the features parquet (robust to schema)
-        auto_cfg, chosen = build_metrics_cfg_from_df(feats)
-        print("[INFO] Composite metrics selected:")
-        for canon, actual in chosen.items():
-            print(f"   {canon:10s} -> {actual}")
+    auto_cfg, chosen = build_metrics_cfg_from_df(feats)
+    print("[INFO] Composite metrics selected:")
+    for canon, actual in chosen.items(): print(f"   {canon:10s} -> {actual}")
 
-        scores = compute_composite_scores(
-            feats,
-            date_col="date",
-            id_col="ticker",
-            sector_col="sector",
-            metrics_cfg=auto_cfg,                # use auto-detected config
-            neutralize_vs=("beta_60d", "ln_mcap"),
+    scores = compute_composite_scores(
+        feats, date_col="date", id_col="ticker", sector_col="sector",
+        metrics_cfg=auto_cfg, neutralize_vs=("beta_60d","ln_mcap"),
+    )
+
+    # 4) snapshot + history
+    snap_path = "output/equity_rank_snapshot.csv"
+    hist_path = "output/equity_rank_history.parquet"
+    latest_dt = scores["date"].max()
+    today_cs = scores[scores["date"] == latest_dt].copy()
+    save_rank_snapshot(today_cs, snap_path)
+
+    try:
+        if Path(hist_path).exists():
+            hist = pd.read_parquet(hist_path)
+            hist = pd.concat([hist, today_cs]).drop_duplicates(subset=["date","ticker"], keep="last")
+        else:
+            hist = today_cs
+        hist.to_parquet(hist_path)
+        print(f"[OK] Appended to rank history → {hist_path}")
+    except Exception as e:
+        print(f"[WARN] Could not update rank history parquet: {e}")
+
+    # 4b) composite member snapshots joined with today's ranks
+    if selected_comps:
+        rank_today_df = today_cs[[c for c in ("ticker","score","rank_pct","decile") if c in today_cs.columns]]
+        build_composites_from_raw(selected_comps, root, rank_today=rank_today_df,
+                                  select_names=set(c.get("name") for c in selected_comps))
+
+    # 5) report
+    try:
+        make_equity_report(
+            features_path=feats_path, ranks_path=snap_path,
+            plots_dir="output/plots", out_md="output/reports/equities_report.md",
+            top_k=25, bottom_k=25,
         )
-        snap_path = "output/equity_rank_snapshot.csv"
-        save_rank_snapshot(scores, snap_path)
-
-        if args.report:
-            make_equity_report(
-                features_path=feats_path,
-                ranks_path=snap_path,
-                plots_dir=feats_conf.get("plots_path", "output/plots"),
-                out_md="output/reports/equities_report.md",
-            )
-            print("[OK] Equities report written.")
+    except Exception as e:
+        print(f"[WARN] Report generation failed: {e}")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
