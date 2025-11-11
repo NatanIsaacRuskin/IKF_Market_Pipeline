@@ -1,5 +1,38 @@
 # IKF Market Pipeline – Code Catalog
 
+_Branch: **main** | Files: **18**_
+
+## Index
+
+- `CATALOG.md`  (30 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+- `config/config.yaml`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
+- `modules/__init__.py`  (0 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
+- `modules/equities.py`  (4 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
+- `modules/features.py`  (10 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
+- `modules/features_dedup.py`  (4 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features_dedup.py)
+- `modules/futures.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
+- `modules/options.py`  (1 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
+- `modules/ranking.py`  (9 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/ranking.py)
+- `modules/rates.py`  (1 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
+- `modules/report_equities.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/report_equities.py)
+- `quick_check.py`  (714 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
+- `Readme.md`  (229 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
+- `requirements.txt`  (144 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
+- `run_pipeline.py`  (4 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
+- `utils/__init__.py`  (0 B, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
+- `utils/build_catalog.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
+- `utils/helpers.py`  (2 KB, modified 2025-11-11 16:36:32Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
+
+---
+
+## File Previews
+
+
+### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
+
+```md
+# IKF Market Pipeline – Code Catalog
+
 _Branch: **main** | Files: **15**_
 
 ## Index
@@ -41,36 +74,6 @@ _Branch: **main** | Files: **15**_
 - `modules/features.py`  (6 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
 - `modules/futures.py`  (929 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
 - `modules/options.py`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py)
-- `modules/rates.py`  (776 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
-- `quick_check.py`  (714 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/quick_check.py)
-- `Readme.md`  (229 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/Readme.md)
-- `requirements.txt`  (135 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/requirements.txt)
-- `run_pipeline.py`  (2 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
-- `utils/__init__.py`  (0 B, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
-- `utils/build_catalog.py`  (2 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/build_catalog.py)
-- `utils/helpers.py`  (1 KB, modified 2025-11-10 13:07:18Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/helpers.py)
-
----
-
-## File Previews
-
-
-### `CATALOG.md`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-
-```md
-# IKF Market Pipeline – Code Catalog
-
-_Branch: **main** | Files: **15**_
-
-## Index
-
-- `CATALOG.md`  (25 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/CATALOG.md)
-- `config/config.yaml`  (1 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/config/config.yaml)
-- `modules/__init__.py`  (0 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/__init__.py)
-- `modules/equities.py`  (2 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/equities.py)
-- `modules/features.py`  (7 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features.py)
-- `modules/futures.py`  (862 B, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
-- `modules/options.py`  (1 KB, modified 2025-11-10 12:54:19Z UTC) → [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/options.py
 ...
 [truncated]
 ```
@@ -387,6 +390,122 @@ def _compute_one_ticker_features(df: pd.DataFrame, ticker: str, cfg: dict) -> pd
 [truncated]
 ```
 
+### `modules/features_dedup.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/features_dedup.py)
+
+```py
+# modules/features_dedup.py
+from __future__ import annotations
+
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+def _ensure_date_column(df: pd.DataFrame, target: str = "date") -> pd.DataFrame:
+    """
+    Make sure a 'date' column exists.
+    - If index is DatetimeIndex, bring it out as a column.
+    - Else, search for a datetime-like column and rename it to 'date'.
+    """
+    if target in df.columns:
+        # normalize to pandas datetime (no timezone)
+        df[target] = pd.to_datetime(df[target], errors="coerce", utc=True).dt.tz_convert(None)
+        return df
+
+    # 1) DatetimeIndex → column
+    if isinstance(df.index, pd.DatetimeIndex):
+        name = df.index.name if df.index.name else "index"
+        df = df.reset_index().rename(columns={name: target})
+        df[target] = pd.to_datetime(df[target], errors="coerce", utc=True).dt.tz_convert(None)
+        return df
+
+    # 2) Look for obvious names
+    candidates = [c for c in df.columns if str(c).lower() in {"date", "datetime", "timestamp"}]
+    # 3) Or any column that can be parsed as datetime
+    if not candidates:
+        for c in df.columns:
+            try:
+                tmp = pd.to_datetime(df[c], errors="coerce")
+                if tmp.notna().mean() > 0.9:  # mostly valid datetimes
+                    candidates.append(c)
+                    break
+            except Exception:
+                continue
+
+    if candidates:
+        pick = candidates[0]
+        if pick != target:
+            df = df.rename(columns={pick: target})
+        df[target] = pd.to_datetime(df[target], errors="coerce", utc=True).dt.tz_convert(None)
+        return df
+
+    raise KeyError(
+        "Could not find a date column. Looked for index=DatetimeIndex or columns like "
+        "'date'/'datetime'/'timestamp'. Available columns: "
+        f"{list(df.columns)[:12]}..."
+    )
+
+def _ensure_id_column(df: pd.DataFrame, target: str = "ticker") -> pd.DataFrame:
+    """
+    Make sure a 'ticker' column exists. Try common alternatives, then normalize.
+    """
+    if target not in df.columns:
+        for alt in ("Ticker", "ticker", "symbol", "Symbol"):
+            if alt in df.columns:
+                df = df.rename(columns={alt: target})
+                break
+    if target not in df.columns:
+        raise KeyError(f"Missing identifier column '{target}'. Columns: {list(df.columns)[:12]}...")
+
+    df[target] = df[target].astype(str).str.upper()
+    return df
+
+def finalize_equity_features_file(
+    processed_dir: str = "data/processed",
+    fname: str = "equity_features.parquet",
+    *,
+    date_col: str = "date",
+    id_col: str = "ticker",
+) -> str:
+    """
+    Enforce unique primary key (date, ticker) on the engineered features parquet.
+    Run this right after feature engineering (and again before ranking as a guard).
+    """
+    path = Path(processed_dir) / fname
+    if not path.exists():
+        print(f"[INFO] finalize_equity_features_file: {path} not found, skipping.")
+        return str(path)
+
+    df = pd.read_parquet(path)
+    n0 = len(df)
+
+    # Ensure keys exist and are normalized
+    df = _ensure_date_column(df, target=date_col)
+    df = _ensure_id_column(df, target=id_col)
+
+    # Add a deterministic preference column if none exists, so 'keep=last' is meaningful
+    prefer_cols = []
+    if "ingest_ts" in df.columns: prefer_cols.append("ingest_ts")
+    if "calc_ts"   in df.columns: prefer_cols.append("calc_ts")
+    if not prefer_cols:
+        df["ingest_ts"] = pd.Timestamp.utcnow()
+        prefer_cols = ["ingest_ts"]
+
+    # Sort so the last record per (date, ticker) is the one we keep
+    sort_cols = [date_col, id_col] + prefer_cols
+    df = df.sort_values(sort_cols).drop_duplicates(subset=[date_col, id_col], keep="last")
+
+    # Sanity check
+    dup_ct = df.duplicated(subset=[date_col, id_col]).sum()
+    assert dup_ct == 0, f"Dedup failed: {dup_ct} duplicate (date,ticker) rows remain."
+
+    # Write back
+    df.to_parquet(path)
+    n1 = len(df)
+    print(f"[OK] Features ded
+...
+[truncated]
+```
+
 ### `modules/futures.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/futures.py)
 
 ```py
@@ -486,6 +605,134 @@ def update_options(cfg: dict, storage_root: str):
 
 ```
 
+### `modules/ranking.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/ranking.py)
+
+```py
+# modules/ranking.py
+from __future__ import annotations
+import re
+import numpy as np
+import pandas as pd
+
+EPS = 1e-12
+
+
+# ------------------------ Robust transforms ------------------------ #
+def _mad(x: np.ndarray) -> float:
+    med = np.nanmedian(x)
+    return np.nanmedian(np.abs(x - med))
+
+
+def _safe_robust_z(s: pd.Series) -> pd.Series:
+    """Robust z; returns NaNs if too few valid points or constant series."""
+    s = pd.to_numeric(s, errors="coerce")
+    n = s.notna().sum()
+    if n < 3:
+        return pd.Series(np.nan, index=s.index)
+    med = np.nanmedian(s.values)
+    mad = _mad(s.values)
+    if not np.isfinite(med) or mad == 0 or not np.isfinite(mad):
+        return pd.Series(np.nan, index=s.index)
+    out = (s - med) / (1.4826 * (mad + EPS))
+    out = out.replace([np.inf, -np.inf], np.nan)
+    return out
+
+
+def winsorize(s: pd.Series, lo: float = -3.0, hi: float = 3.0) -> pd.Series:
+    return s.clip(lo, hi)
+
+
+def zscore(s: pd.Series) -> pd.Series:
+    s = pd.to_numeric(s, errors="coerce")
+    m = s.mean(skipna=True)
+    sd = s.std(skipna=True)
+    if not np.isfinite(sd) or sd == 0:
+        return pd.Series(np.nan, index=s.index)
+    return (s - m) / (sd + EPS)
+
+
+# ------------------------ Neutralization ------------------------ #
+def _residualize(y: pd.Series, X: pd.DataFrame) -> pd.Series:
+    """Cross-sectional OLS residuals: y ~ X (safe to NaNs)."""
+    X = X.copy()
+    mask = y.notna()
+    for c in X.columns:
+        mask &= X[c].notna()
+    if mask.sum() < 3:
+        yc = y - y.mean(skipna=True)
+        return yc.fillna(np.nan)
+    yv = y[mask].values.astype(float)
+    XV = X[mask].values.astype(float)
+    XV = np.c_[XV, np.ones(len(XV))]
+    beta = np.linalg.pinv(XV.T @ XV) @ (XV.T @ yv)
+    y_hat = XV @ beta
+    resid = yv - y_hat
+    out = pd.Series(np.nan, index=y.index)
+    out.loc[mask.index[mask]] = resid
+    return out
+
+
+# ------------------------ Input normalization ------------------------ #
+def _normalize_input(
+    features: pd.DataFrame,
+    *,
+    date_col: str,
+    id_col: str,
+    sector_col: str | None,
+) -> pd.DataFrame:
+    df = features.copy()
+
+    if date_col not in df.columns:
+        if isinstance(df.index, pd.DatetimeIndex):
+            df = df.reset_index()
+        candidates = [c for c in df.columns if pd.api.types.is_datetime64_any_dtype(df[c])]
+        candidates += [date_col, "date", "Date", "datetime", "Datetime", "timestamp", "Timestamp"]
+        picked = next((c for c in candidates if c in df.columns), None)
+        if picked is None:
+            first = df.columns[0]
+            try:
+                pd.to_datetime(df[first]); picked = first
+            except Exception:
+                pass
+        if picked is None:
+            raise KeyError(f"Could not find a datetime column for '{date_col}'. Columns: {list(df.columns)[:12]} ...")
+        if picked != date_col:
+            df = df.rename(columns={picked: date_col})
+    df[date_col] = pd.to_datetime(df[date_col], errors="coerce")
+
+    if id_col not in df.columns:
+        for alt in ("Ticker", "ticker", "symbol", "Symbol"):
+            if alt in df.columns:
+                df = df.rename(columns={alt: id_col})
+                break
+    if id_col not in df.columns:
+        raise KeyError(f"Missing identifier column '{id_col}'. Columns: {list(df.columns)[:12]} ...")
+
+    if sector_col and sector_col not in df.columns:
+        df[sector_col] = "ALL"
+
+    if "ln_mcap" not in df.columns and "market_cap" in df.columns:
+        df["ln_mcap"] = np.log(pd.to_numeric(df["market_cap"], errors="coerce").replace(0, np.nan))
+
+    return df
+
+
+# ------------------------ Auto-detect feature columns ------------------------ #
+_ALIAS_PATTERNS: dict[str, list[tuple[str, bool]]] = {
+    "momentum": [
+        (r"^mom(_\d+d)?$", True),
+        (r"^ret_\d+d$", True),
+        (r"^momentum.*$", True),
+        (r"^roc(_\d+d)?$", True),
+    ],
+    "volatility": [
+        (r"^vol(_\d+d)?$", False),
+        (r"^stdev(_\d+d)?$", False),
+        (r"^atr(_\d+)
+...
+[truncated]
+```
+
 ### `modules/rates.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/rates.py)
 
 ```py
@@ -524,6 +771,69 @@ def update_rates(cfg: dict, storage_root: str):
         df.index = pd.to_datetime(df.index); df.index.name = "Date"
         incremental_append(df, path, index_name="Date")
         print(f"[OK] {s}: window={start}..today rows={len(df):,} -> {path}")
+
+```
+
+### `modules/report_equities.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/modules/report_equities.py)
+
+```py
+# modules/report_equities.py
+from __future__ import annotations
+from pathlib import Path
+import pandas as pd
+
+def _to_md_table(df: pd.DataFrame) -> str:
+    """Use pandas.to_markdown if available (tabulate installed); else fallback to code block."""
+    try:
+        return df.to_markdown(index=False)
+    except Exception:
+        # Fallback: simple code block table
+        return "```\n" + df.to_string(index=False) + "\n```"
+
+def make_equity_report(
+    *,
+    features_path="data/processed/equity_features.parquet",
+    ranks_path="output/equity_rank_snapshot.csv",
+    plots_dir="output/plots",
+    out_md="output/reports/equities_report.md",
+    top_k=25,
+    bottom_k=25,
+) -> str:
+    Path(out_md).parent.mkdir(parents=True, exist_ok=True)
+    Path(plots_dir).mkdir(parents=True, exist_ok=True)
+
+    ranks = pd.read_csv(ranks_path, parse_dates=["date"])
+    latest = ranks["date"].max()
+    today = ranks[ranks["date"] == latest].copy()
+
+    top = today.nlargest(top_k, "score")[["ticker", "score", "rank_pct", "decile"]]
+    bot = today.nsmallest(bottom_k, "score")[["ticker", "score", "rank_pct", "decile"]]
+    summary = today["score"].describe()[["mean", "std", "min", "25%", "50%", "75%", "max"]]
+
+    md = []
+    md.append(f"# IKF Equities — Composite Snapshot ({latest.date()})")
+    md.append("")
+    md.append("**Composite Score Meaning:** standardized cross-sectional z-score (per date). "
+              "0≈average, +1≈one standard deviation above peers.")
+    md.append("")
+    md.append("## Summary Statistics")
+    md.append(_to_md_table(summary.to_frame("value").reset_index().rename(columns={"index":"metric"})))
+
+    md.append("\n## Top Ranked Tickers")
+    md.append(_to_md_table(top))
+
+    md.append("\n## Bottom Ranked Tickers")
+    md.append(_to_md_table(bot))
+
+    md.append("\n## Plots")
+    for p in ["risk_return.png", "corr_heatmap.png", "ic_timeseries.png"]:
+        f = Path(plots_dir) / p
+        if f.exists():
+            md.append(f"\n![{p}]({f.as_posix()})")
+
+    Path(out_md).write_text("\n".join(md), encoding="utf-8")
+    print(f"[OK] Markdown report written → {out_md}")
+    return out_md
 
 ```
 
@@ -584,6 +894,7 @@ yfinance
 ta
 matplotlib
 seaborn
+tabulate
 
 # Parquet + data sources
 pyarrow
@@ -598,12 +909,22 @@ jupyter
 ### `run_pipeline.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/run_pipeline.py)
 
 ```py
-import argparse, yaml
+# run_pipeline.py
+from __future__ import annotations
+
+import argparse
+import yaml
+import pandas as pd
+import numpy as np
+
 from modules.equities import update_equities
-from modules.options  import update_options
-from modules.futures  import update_futures
-from modules.rates    import update_rates
+from modules.options import update_options
+from modules.futures import update_futures
+from modules.rates import update_rates
 from modules.features import run_equity_features
+from modules.features_dedup import finalize_equity_features_file
+from modules.ranking import compute_composite_scores, save_rank_snapshot, build_metrics_cfg_from_df
+from modules.report_equities import make_equity_report
 
 def load_config(path: str = "config/config.yaml") -> dict:
     with open(path, "r") as f:
@@ -612,37 +933,31 @@ def load_config(path: str = "config/config.yaml") -> dict:
 def main():
     ap = argparse.ArgumentParser(description="IKF Universal Market Pipeline")
 
-    # what to run
-    ap.add_argument("--asset",
-                    choices=["all","equities","options","futures","rates"],
-                    default="all",
+    ap.add_argument("--asset", choices=["all","equities","options","futures","rates"], default="all",
                     help="which asset updater(s) to run")
-    ap.add_argument("--features",
-                    action="store_true",
-                    help="run equity feature engineering after updates")
+    ap.add_argument("--features", action="store_true",
+                    help="run equity feature engineering")
+    ap.add_argument("--rank", action="store_true",
+                    help="compute cross-sectional composite ranks")
+    ap.add_argument("--report", action="store_true",
+                    help="generate Markdown equities report")
 
-    # config path
-    ap.add_argument("--config",
-                    default="config/config.yaml",
+    ap.add_argument("--config", default="config/config.yaml",
                     help="path to YAML config")
 
-    # NEW: one-off backfill controls for equities
-    ap.add_argument("--full",
-                    action="store_true",
+    # one-off backfill controls for equities
+    ap.add_argument("--full", action="store_true",
                     help="force full backfill for equities (start from history_start)")
-    ap.add_argument("--recent",
-                    type=int, default=None,
-                    help="force recent backfill for equities using N lookback days (ignores on-disk)")
+    ap.add_argument("--recent", type=int, default=None,
+                    help="force recent backfill for equities using N lookback days")
 
     args = ap.parse_args()
+    cfg = load_config(args.config)
 
-    cfg  = load_config(args.config)
     root = cfg["storage"]["root"]
 
-    # ---- equities updater (merge defaults + equities block) ----
+    # ---- equities updater config (merge defaults + equities block) ----
     eq_cfg = (cfg.get("defaults", {}) | cfg.get("equities", {})).copy()
-
-    # apply CLI overrides (these override config.yaml for this run only)
     if args.full:
         eq_cfg["mode"] = "full"
     if args.recent is not None:
@@ -660,14 +975,40 @@ def main():
         update_rates(cfg.get("rates", {}), root)
 
     # ---- features (equities) ----
+    feats_conf = cfg.get("features", {}).get("equities", {})
+    processed_dir = feats_conf.get("processed_path", "data/processed")
+    feats_path = f"{processed_dir}/equity_features.parquet"
+
     if args.features:
-        eq_feat_cfg = cfg.get("features", {}).get("equities", {})
-        run_equity_features(eq_feat_cfg)
+        run_equity_features(feats_conf)
         print("[OK] Equity feature engineering complete.")
+        # EARLY DEDUP: enforce unique (date,ticker) before anything downstream
+        finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
 
-if __name__ == "__main__":
-    main()
+    # ---- ranking + report ----
+    if args.rank or args.report:
+        # Guard: ensure features parquet exists and is deduped even if user didn't run --features in this session
+        finalize_equity_features_file(processed_dir=processed_dir, fname="equity_features.parquet")
 
+        feats = pd.read_parquet(feats_path)
+
+        # Auto-detect available metrics from the features parquet (robust to schema)
+        auto_cfg, chosen = build_metrics_cfg_from_df(feats)
+        print("[INFO] Composite metrics selected:")
+        for canon, actual in chosen.items():
+            print(f"   {canon:10s} -> {actual}")
+
+        scores = compute_composite_scores(
+            feats,
+            date_col="date",
+            id_col="ticker",
+            sector_col="sector",
+            metrics_cfg=auto_cfg,                # use auto-detected config
+            neutralize_vs=("beta_60d", "ln_mcap"),
+        )
+        snap_path = "output/equity_rank_snapsh
+...
+[truncated]
 ```
 
 ### `utils/__init__.py`  •  [raw](https://raw.githubusercontent.com/NatanIsaacRuskin/IKF_Market_Pipeline/main/utils/__init__.py)
