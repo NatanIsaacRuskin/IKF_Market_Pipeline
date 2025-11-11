@@ -6,6 +6,7 @@ yfinance
 ta
 matplotlib
 seaborn
+tabulate
 
 # Parquet + data sources
 pyarrow
