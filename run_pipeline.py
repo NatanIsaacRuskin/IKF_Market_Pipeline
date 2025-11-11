@@ -1,4 +1,3 @@
-# FILE: run_pipeline.py
 from __future__ import annotations
 import argparse, sys, yaml
 from pathlib import Path
@@ -14,6 +13,16 @@ from modules.ranking import compute_composite_scores, save_rank_snapshot, build_
 from modules.report_equities import make_equity_report
 from modules.composites import build_composites_from_raw
 
+# --- Optional clean-outputs orchestrator imports (safe even if stubs) ---
+from modules.perf import (
+    build_composite_nav, perf_table, drawdown_series, rolling_sharpe  # noqa: F401
+)
+from modules.plotting import (
+    load_plot_cfg, plot_cum_return, plot_rolling_sharpe, plot_drawdown, plot_risk_return, plot_corr_heatmap  # noqa: F401
+)
+from modules.reporting import write_equities_report  # noqa: F401
+# -----------------------------------------------------------------------
+
 def load_config(path: str = "config/config.yaml") -> dict:
     with open(path, "r") as f:
         return yaml.safe_load(f)
@@ -23,6 +32,38 @@ def _parse_composite_selection(arg: str | None) -> tuple[str, set[str]]:
     if arg.strip().lower() == "none": return ("none", set())
     names = {x.strip() for x in arg.split(",") if x.strip()}
     return ("some", names)
+
+# ---------------------------------------------------------------------
+# Optional: clean outputs orchestrator (SAFE no-op until stubs are filled)
+# ---------------------------------------------------------------------
+def run_clean_outputs(cfg: dict) -> None:
+    """
+    Safe optional step. Ensures output dirs exist and applies plotting style
+    if available. Does nothing else until modules/perf|plotting|reporting
+    functions are implemented. Will not raise.
+    """
+    try:
+        paths = cfg.get("paths", {})
+        plots_dir = Path(paths.get("plots", "output/plots"))
+        reports_dir = Path(paths.get("reports", "output/reports"))
+        snapshots_dir = Path(paths.get("snapshots", "output/snapshots"))
+        processed_dir = Path(paths.get("processed", "data/processed"))
+
+        plots_dir.mkdir(parents=True, exist_ok=True)
+        reports_dir.mkdir(parents=True, exist_ok=True)
+        snapshots_dir.mkdir(parents=True, exist_ok=True)
+        (processed_dir / "composites").mkdir(parents=True, exist_ok=True)
+
+        # Try to load/apply plotting style (ok if still a stub)
+        try:
+            _ = load_plot_cfg(cfg)  # type: ignore
+        except Exception as _e:
+            print(f"[clean-outputs] plotting cfg not active (ok): {_e}")
+
+        print("[clean-outputs] stage ready (no-op until plotting/perf/reporting implemented).")
+    except Exception as e:
+        print(f"[clean-outputs] skipped due to: {e}")
+# ---------------------------------------------------------------------
 
 def main(argv: list[str] | None = None):
     ap = argparse.ArgumentParser(
@@ -138,6 +179,14 @@ def main(argv: list[str] | None = None):
         )
     except Exception as e:
         print(f"[WARN] Report generation failed: {e}")
+
+    # 6) optional clean outputs (no-op until modules are implemented)
+    try:
+        if cfg.get("report", {}):  # any truthy 'report' section toggles it on
+            run_clean_outputs(cfg)
+    except Exception as e:
+        print(f"[WARN] Clean outputs step skipped: {e}")
+
     return 0
 
 if __name__ == "__main__":
