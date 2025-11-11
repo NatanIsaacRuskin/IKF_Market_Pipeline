@@ -77,6 +77,39 @@ composites:
     weights_csv: "config/composites_specs/IKF_EnergyPulse.csv"  # ← UNCOMMENT / add this
     # weights: [0.25, 0.25, 0.20, 0.15, 0.15]                  # ← optional to leave, ignored when CSV present
     benchmark: "SPY"
-    rebalance: "monthly"
+    rebalance: "none"
     start: "2010-01-01"
 
+plot:
+  style: seaborn-whitegrid
+  dpi: 140
+  colors:
+    spy: "#9E9E9E"        # grey benchmark
+    ikf_green: "#1BAA4A"  # IKF green
+    accent: "#3B82F6"
+  marker:
+    size_normal: 60
+    size_highlight: 110
+  line:
+    width_normal: 2.0
+    width_highlight: 3.0
+
+report:
+  top_n: 10
+  include_sections:
+    - leaders_laggards
+    - cum_return
+    - rolling_sharpe
+    - drawdown
+    - risk_return
+    - corr_heatmap
+
+backtest:
+  rolling_sharpe_window_days: 60
+  rebal_freq: "monthly"     # none|monthly|quarterly
+
+paths:
+  plots: "output/plots"
+  reports: "output/reports"
+  snapshots: "output/snapshots"
+  processed: "data/processed"
