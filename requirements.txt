@@ -7,6 +7,10 @@ ta
 matplotlib
 seaborn
 tabulate
+openpyxl
+xlsxwriter
+lxml
+requests
 
 # Parquet + data sources
 pyarrow
