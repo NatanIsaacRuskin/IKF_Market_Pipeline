@@ -14,11 +14,11 @@ from modules.report_equities import make_equity_report
 from modules.composites import build_composites_from_raw
 
 # --- Optional clean-outputs orchestrator imports (safe even if stubs) ---
-from modules.perf import (
-    build_composite_nav, perf_table, drawdown_series, rolling_sharpe  # noqa: F401
+from modules.perf import (  # noqa: F401
+    build_composite_nav, perf_table, drawdown_series, rolling_sharpe
 )
-from modules.plotting import (
-    load_plot_cfg, plot_cum_return, plot_rolling_sharpe, plot_drawdown, plot_risk_return, plot_corr_heatmap  # noqa: F401
+from modules.plotting import (  # noqa: F401
+    load_plot_cfg, plot_cum_return, plot_rolling_sharpe, plot_drawdown, plot_risk_return, plot_corr_heatmap
 )
 from modules.reporting import write_equities_report  # noqa: F401
 # -----------------------------------------------------------------------
@@ -33,37 +33,174 @@ def _parse_composite_selection(arg: str | None) -> tuple[str, set[str]]:
     names = {x.strip() for x in arg.split(",") if x.strip()}
     return ("some", names)
 
-# ---------------------------------------------------------------------
-# Optional: clean outputs orchestrator (SAFE no-op until stubs are filled)
-# ---------------------------------------------------------------------
 def run_clean_outputs(cfg: dict) -> None:
     """
-    Safe optional step. Ensures output dirs exist and applies plotting style
-    if available. Does nothing else until modules/perf|plotting|reporting
-    functions are implemented. Will not raise.
+    Build SPY (grey) vs IKF composites (green) plots and a markdown report.
+    Uses NAVs from data/processed/{benchmarks,composites} and honors
+    report.ikf_windows in config for time-window charts.
+    Never raises.
     """
     try:
+        from glob import glob
+        from pathlib import Path
+        import pandas as pd
+        from modules.plotting import (
+            load_plot_cfg, plot_cum_return, plot_rolling_sharpe,
+            plot_drawdown, plot_risk_return, plot_corr_heatmap
+        )
+        from modules.reporting import write_equities_report
+        from modules.perf import perf_table
+
+        # --- paths ---
         paths = cfg.get("paths", {})
-        plots_dir = Path(paths.get("plots", "output/plots"))
-        reports_dir = Path(paths.get("reports", "output/reports"))
-        snapshots_dir = Path(paths.get("snapshots", "output/snapshots"))
+        plots_dir = Path(paths.get("plots", "output/plots"));       plots_dir.mkdir(parents=True, exist_ok=True)
+        reports_dir = Path(paths.get("reports", "output/reports")); reports_dir.mkdir(parents=True, exist_ok=True)
+        snapshots_dir = Path(paths.get("snapshots", "output/snapshots")); snapshots_dir.mkdir(parents=True, exist_ok=True)
         processed_dir = Path(paths.get("processed", "data/processed"))
-
-        plots_dir.mkdir(parents=True, exist_ok=True)
-        reports_dir.mkdir(parents=True, exist_ok=True)
-        snapshots_dir.mkdir(parents=True, exist_ok=True)
         (processed_dir / "composites").mkdir(parents=True, exist_ok=True)
+        composites_dir = processed_dir / "composites"
 
-        # Try to load/apply plotting style (ok if still a stub)
+        # --- load composite NAVs ---
+        comp_navs: dict[str, pd.Series] = {}
+        for fp in glob(str(composites_dir / "*_nav.parquet")):
+            name = Path(fp).stem.replace("_nav", "")
+            s = pd.read_parquet(fp).squeeze()
+            s.index = pd.to_datetime(s.index)
+            comp_navs[name] = s.sort_index()
+
+        # --- load/derive SPY NAV (benchmark only) ---
+        spy_nav = None
+        for cand in (processed_dir / "benchmarks" / "spy_nav.parquet",
+                     processed_dir / "SPY_nav.parquet"):
+            if Path(cand).exists():
+                spy_nav = pd.read_parquet(cand).squeeze()
+                spy_nav.index = pd.to_datetime(spy_nav.index)
+                spy_nav = spy_nav.sort_index()
+                break
+
+        if spy_nav is None:
+            # best-effort fallback from any prices panel if configured
+            try:
+                root = cfg["storage"]["root"]
+                px_path = Path(root) / "equities" / "prices.parquet"
+                if px_path.exists():
+                    df = pd.read_parquet(px_path)
+                    if "SPY" in df.columns:
+                        ps = df["SPY"].dropna()
+                        spy_nav = (1.0 + ps.pct_change().fillna(0.0)).cumprod() * 100.0
+                        spy_nav.name = "SPY"
+                        (processed_dir / "benchmarks").mkdir(parents=True, exist_ok=True)
+                        spy_nav.to_frame(name="NAV").to_parquet(processed_dir / "benchmarks" / "spy_nav.parquet")
+            except Exception:
+                pass
+
+        if spy_nav is None or not comp_navs:
+            print("[clean-outputs] Missing SPY or composite NAVs — skipping charts.")
+            return
+
+        # --- returns & helpers ---
+        spy_ret = spy_nav.pct_change().dropna()
+        comp_returns = {k: v.pct_change().dropna() for k, v in comp_navs.items()}
+        returns_df = pd.concat([spy_ret.rename("SPY")] + [r.rename(k) for k, r in comp_returns.items()], axis=1).dropna(how="all")
+
+        # --- plotting: full period + IKF windows (config override) ---
+        plt_cfg = load_plot_cfg(cfg)
+
+        # full period
+        plot_cum_return(spy_nav, comp_navs, (plots_dir / "equities_cum_return.png").as_posix(), plt_cfg)
+        plot_drawdown(spy_nav, comp_navs, (plots_dir / "equities_drawdown.png").as_posix(), plt_cfg)
+        plot_risk_return(spy_ret, comp_returns, (plots_dir / "equities_risk_return.png").as_posix(), plt_cfg)
+        plot_corr_heatmap(returns_df, (plots_dir / "equities_corr_heatmap.png").as_posix(), plt_cfg)
+
+        rs_win = int(cfg.get("backtest", {}).get("rolling_sharpe_window_days", 60))
+        if len(spy_ret) >= rs_win:
+            plot_rolling_sharpe(spy_ret, comp_returns, rs_win, (plots_dir / "equities_rolling_sharpe.png").as_posix(), plt_cfg)
+
+        # IKF windows — read from config if present
+        asof = spy_nav.index.max()
+        _map = {
+            "3d": pd.Timedelta(days=3),
+            "7d": pd.Timedelta(days=7),
+            "14d": pd.Timedelta(days=14),
+            "1m": pd.DateOffset(months=1),
+            "3m": pd.DateOffset(months=3),
+            "1y": pd.DateOffset(years=1),
+        }
+        cfg_w = (cfg.get("report", {}) or {}).get("ikf_windows")
+        if cfg_w:
+            windows = [(w, _map[w]) for w in cfg_w if w in _map]
+        else:
+            windows = [("3d", _map["3d"]), ("7d", _map["7d"]), ("14d", _map["14d"]),
+                       ("1m", _map["1m"]), ("3m", _map["3m"]), ("1y", _map["1y"])]
+
+        def _slice_navs(start_dt):
+            s_spy = spy_nav[spy_nav.index >= start_dt]
+            s_comp = {k: v[v.index >= start_dt] for k, v in comp_navs.items()}
+            r_spy = s_spy.pct_change().dropna()
+            r_comp = {k: s.pct_change().dropna() for k, s in s_comp.items()}
+            rr_df = pd.concat([r_spy.rename("SPY")] + [r.rename(k) for k, r in r_comp.items()], axis=1).dropna(how="all")
+            return s_spy, s_comp, r_spy, r_comp, rr_df
+
+        for label, delta in windows:
+            start = (asof - delta) if isinstance(delta, pd.Timedelta) else asof - delta
+            s_spy, s_comp, r_spy, r_comp, rr_df = _slice_navs(start)
+            if len(s_spy) >= 2 and any(len(s) >= 2 for s in s_comp.values()):
+                plot_cum_return(s_spy, s_comp, (plots_dir / f"equities_cum_return_{label}.png").as_posix(), plt_cfg)
+                plot_drawdown(s_spy, s_comp, (plots_dir / f"equities_drawdown_{label}.png").as_posix(), plt_cfg)
+                if len(r_spy) >= 5:
+                    plot_risk_return(r_spy, r_comp, (plots_dir / f"equities_risk_return_{label}.png").as_posix(), plt_cfg)
+                if len(r_spy) >= rs_win:
+                    plot_rolling_sharpe(r_spy, r_comp, rs_win, (plots_dir / f"equities_rolling_sharpe_{label}.png").as_posix(), plt_cfg)
+
+        window_labels = [w[0] for w in windows]
+
+        # --- scorecard ---
+        rows = []
+        for name, nav in comp_navs.items():
+            row = perf_table(nav, spy_nav, asof)
+            row.insert(0, "composite", name)
+            rows.append(row)
+        scorecard = pd.concat(rows, ignore_index=True) if rows else pd.DataFrame()
+        if not scorecard.empty:
+            scorecard = scorecard.rename(columns={
+                "ret_ytd": "YTD", "ret_1y": "1Y", "ret_max": "Max",
+                "vol_ann": "Vol (ann)", "sharpe": "Sharpe",
+                "max_dd": "Max DD", "calmar": "Calmar",
+            })
+            order = ["composite", "YTD", "1Y", "Max", "Vol (ann)", "Sharpe", "Max DD", "Calmar"]
+            scorecard = scorecard[[c for c in order if c in scorecard.columns]]
+
+        # --- leaders/laggards ---
+        leaders = laggards = None
         try:
-            _ = load_plot_cfg(cfg)  # type: ignore
-        except Exception as _e:
-            print(f"[clean-outputs] plotting cfg not active (ok): {_e}")
+            snap = pd.read_csv("output/equity_rank_snapshot.csv")
+            cols = [c for c in ("ticker","score","rank_pct","decile") if c in snap.columns]
+            if cols:
+                snap = snap[cols].copy().sort_values("score", ascending=False)
+                top_n = int(cfg.get("report", {}).get("top_n", 10))
+                leaders = snap.head(top_n).reset_index(drop=True)
+                laggards = snap.tail(top_n).iloc[::-1].reset_index(drop=True)
+        except Exception:
+            pass
 
-        print("[clean-outputs] stage ready (no-op until plotting/perf/reporting implemented).")
+        # --- write report ---
+        include_sections = cfg.get("report", {}).get(
+            "include_sections",
+            ["cum_return", "rolling_sharpe", "drawdown", "risk_return", "corr_heatmap"],
+        )
+        write_equities_report(
+            out_md=reports_dir / "equities_report.md",
+            asof=str(asof.date()),
+            scorecard=scorecard,
+            leaders=leaders,
+            laggards=laggards,
+            plots_dir=plots_dir,
+            include_sections=include_sections,
+            time_windows=window_labels,
+        )
+        print("[clean-outputs] Report + plots written.")
     except Exception as e:
         print(f"[clean-outputs] skipped due to: {e}")
-# ---------------------------------------------------------------------
 
 def main(argv: list[str] | None = None):
     ap = argparse.ArgumentParser(
@@ -179,6 +316,15 @@ def main(argv: list[str] | None = None):
         )
     except Exception as e:
         print(f"[WARN] Report generation failed: {e}")
+
+    # 5b) auto-build/extend SPY + composite NAVs (incremental; cheap)
+    try:
+        import os
+        from utils.build_navs_from_prices import main as _build_navs
+        force_full = bool(os.getenv("IKF_FORCE_FULL_NAV"))
+        _build_navs(force_full=force_full)
+    except Exception as e:
+        print(f"[WARN] NAV build skipped: {e}")
 
     # 6) optional clean outputs (no-op until modules are implemented)
     try:

@@ -1,7 +1,32 @@
+# --- Python cache ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.log
+.ipynb_checkpoints/
+*.DS_Store
+
+# --- Virtual environment ---
+.venv/
+venv/
+
+# --- Generated data & outputs ---
 data/
 output/
 backups/
-**/.ipynb_checkpoints/
-*.log
-__pycache__/
-*.pyc
+data/processed/
+data/raw/
+output/models/
+output/plots/
+output/reports/
+output/snapshots/
+
+# --- Generated metadata ---
+*.parquet
+*.meta.json
+
+# --- Checkpoint & temp files ---
+**/.gitkeep
+*.tmp
+*.bak

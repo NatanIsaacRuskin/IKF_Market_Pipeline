@@ -103,6 +103,9 @@ report:
     - drawdown
     - risk_return
     - corr_heatmap
+  # NEW: IKF-style chart windows (order matters)
+  ikf_windows: ["3d", "7d", "14d", "1m", "3m", "1y"]
+
 
 backtest:
   rolling_sharpe_window_days: 60
